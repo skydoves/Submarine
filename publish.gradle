@@ -1,0 +1,13 @@
+apply plugin: 'com.novoda.bintray-release'
+apply from: '../dependencies.gradle'
+
+publish {
+    userOrg = 'devmagician'
+    groupId = 'com.github.skydoves'
+    artifactId = 'submarine'
+    publishVersion = versions.versionName
+    desc = 'This is Submarine by skydoves'
+    website = 'https://github.com/skydoves/Submarine'
+    issueTracker = "${website}/issues"
+    repository = "${website}.git"
+}

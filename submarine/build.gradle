@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka-android'
 apply from: '../dependencies.gradle'
+apply from: '../publish.gradle'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -23,7 +24,7 @@ dependencies {
 }
 
 dokka {
-    moduleName = 'needs'
+    moduleName = 'submarnie'
     outputFormat = 'html'
     //noinspection GroovyAccessibility
     outputDirectory = "$buildDir/javadoc"

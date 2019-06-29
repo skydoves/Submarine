@@ -6,7 +6,7 @@ apply from: '../dependencies.gradle'
 android {
     compileSdkVersion versions.compileSdk
     defaultConfig {
-        applicationId "com.skydoves.needsdemo"
+        applicationId "com.skydoves.submarinedemo"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.compileSdk
         versionCode versions.versionCode
