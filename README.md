@@ -1,10 +1,20 @@
 # Submarine
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19) <br>
-Fully customizable floating navigation view for listing items dynamically on Android.
 
-![art0](https://user-images.githubusercontent.com/24237865/60386446-c4ab9e00-9acf-11e9-8e58-02f758f9667c.gif)
-![art1](https://user-images.githubusercontent.com/24237865/60386447-c4ab9e00-9acf-11e9-872a-dfd6ca23ad4f.gif)
+<p align="center">
+  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+  <a href="https://android-arsenal.com/api?level=19"><img alt="API" src="https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat"/></a>
+  <a href="https://travis-ci.org/skydoves/Submarine"><img alt="API" src="https://travis-ci.org/skydoves/Submarine.svg?branch=master"/></a>
+  <a href="https://skydoves.github.io/libraries/submarine/javadoc/submarnie/com.skydoves.submarine/index.html"><img alt="Javadoc" src="https://img.shields.io/badge/Javadoc-Submarine-yellow.svg"/></a>
+</p>
+
+<p align="center">
+Fully customizable floating navigation view for listing items dynamically on Android.
+</p>
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/24237865/60386446-c4ab9e00-9acf-11e9-8e58-02f758f9667c.gif"/>
+<img src="https://user-images.githubusercontent.com/24237865/60386447-c4ab9e00-9acf-11e9-872a-dfd6ca23ad4f.gif"/>
+</p>
 
 ## Including in your project 
 
