@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="SubmarineView">
+    <attr name="submarine_orientation" format="enum">
+      <enum name="horizontal" value="0" />
+      <enum name="vertical" value="1" />
+    </attr>
+    <attr name="submarine_circleAnchor" format="enum">
+      <enum name="left" value="0" />
+      <enum name="right" value="1" />
+      <enum name="top" value="2" />
+      <enum name="bottom" value="3" />
+    </attr>
+    <attr name="submarine_animation" format="enum">
+      <enum name="none" value="0" />
+      <enum name="fade" value="1" />
+      <enum name="scale" value="2" />
+    </attr>
+    <attr name="submarine_autoNavigate" format="boolean" />
+    <attr name="submarine_autoRetreat" format="boolean" />
+    <attr name="submarine_duration" format="integer" />
+    <attr name="submarine_circleSize" format="dimension" />
+    <attr name="submarine_circleDrawable" format="reference" />
+    <attr name="submarine_circlePadding" format="dimension" />
+    <attr name="submarine_circleBorderSize" format="dimension" />
+    <attr name="submarine_circleBorderColor" format="color" />
+    <attr name="submarine_radius" format="dimension" />
+    <attr name="submarine_color" format="color" />
+    <attr name="submarine_borderSize" format="dimension" />
+    <attr name="submarine_borderColor" format="color" />
+    <attr name="submarine_expandSize" format="dimension" />
+  </declare-styleable>
+</resources>
