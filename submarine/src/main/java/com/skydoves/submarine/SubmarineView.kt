@@ -219,6 +219,8 @@ class SubmarineView : FrameLayout {
       circleIcon.scaleType = ImageView.ScaleType.CENTER_CROP
       circleIcon.setImageDrawable(circleImage)
       circleIcon.setPadding(dp2Px(circlePadding), dp2Px(circlePadding), dp2Px(circlePadding), dp2Px(circlePadding))
+      circleIcon.borderWidth = circleBorderSize.toInt()
+      circleIcon.borderColor = circleBorderColor
     }
   }
 

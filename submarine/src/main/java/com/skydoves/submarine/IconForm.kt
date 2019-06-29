@@ -22,7 +22,11 @@ import android.content.Context
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 
+@DslMarker
+annotation class IconFormMarker
+
 /** creates an instance of [IconForm] from [IconForm.Builder] using kotlin dsl. */
+@IconFormMarker
 fun iconForm(context: Context, block: IconForm.Builder.() -> Unit): IconForm =
   IconForm.Builder(context).apply(block).build()
 

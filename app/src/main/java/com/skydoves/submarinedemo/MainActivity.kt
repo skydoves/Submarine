@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat
 import com.skydoves.submarine.SubmarineCircleClickListener
 import com.skydoves.submarine.SubmarineItem
 import com.skydoves.submarine.SubmarineItemClickListener
+import com.skydoves.submarine.iconForm
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), SubmarineItemClickListener, SubmarineCircleClickListener {
@@ -14,8 +15,6 @@ class MainActivity : AppCompatActivity(), SubmarineItemClickListener, SubmarineC
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-
-    // circle -> circularRevealed or fadeIn animation -> size upupupupup
 
     button.setOnClickListener {
       submarineView.float()
@@ -27,6 +26,11 @@ class MainActivity : AppCompatActivity(), SubmarineItemClickListener, SubmarineC
 
     submarineView.submarineItemClickListener = this
     submarineView.submarineCircleClickListener = this
+
+    val form = iconForm(this) {
+      iconSize = 40
+      iconColor = ContextCompat.getColor(baseContext, R.color.colorPrimary)
+    }
 
     submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_cut)))
     submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_edit)))

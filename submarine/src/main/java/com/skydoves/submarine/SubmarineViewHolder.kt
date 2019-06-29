@@ -16,8 +16,10 @@
 
 package com.skydoves.submarine
 
+import android.content.res.ColorStateList
 import android.view.View
 import android.widget.RelativeLayout
+import androidx.core.widget.ImageViewCompat
 import com.skydoves.baserecyclerviewadapter.BaseViewHolder
 import kotlinx.android.synthetic.main.item_submarine.view.*
 
@@ -51,6 +53,13 @@ class SubmarineViewHolder(
       }
 
       item_submarine_icon.setImageDrawable(submarineItem.icon)
+
+      submarineItem.iconForm?.let {
+        item_submarine_icon.layoutParams.width = context.dp2Px(it.iconSize)
+        item_submarine_icon.layoutParams.height = context.dp2Px(it.iconSize)
+        item_submarine_icon.scaleType = it.iconScaleType
+        ImageViewCompat.setImageTintList(item_submarine_icon, ColorStateList.valueOf(it.iconColor))
+      }
     }
   }
 
