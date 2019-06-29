@@ -6,6 +6,7 @@
   android:background="@color/background">
 
   <androidx.core.widget.NestedScrollView
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -17,6 +18,7 @@
       <ImageView
         android:layout_width="match_parent"
         android:layout_height="240dp"
+        android:scaleType="fitXY"
         android:src="@drawable/background" />
 
       <androidx.recyclerview.widget.RecyclerView
@@ -33,14 +35,37 @@
     android:layout_width="50dp"
     android:layout_height="50dp"
     android:layout_alignParentBottom="true"
-    android:layout_margin="20dp"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="20dp"
     android:alpha="0.8"
     app:submarine_animation="scale"
+    app:submarine_autoDip="true"
     app:submarine_autoNavigate="true"
-    app:submarine_autoRetreat="true"
     app:submarine_borderColor="@color/grass"
     app:submarine_borderSize="1dp"
     app:submarine_circleAnchor="left"
+    app:submarine_circleBorderColor="@color/preview"
+    app:submarine_circleBorderSize="1dp"
+    app:submarine_circleDrawable="@drawable/background"
+    app:submarine_circlePadding="2dp"
+    app:submarine_circleSize="22dp"
+    app:submarine_color="@android:color/black"
+    app:submarine_duration="350"
+    app:submarine_orientation="horizontal" />
+
+  <com.skydoves.submarine.SubmarineView
+    android:id="@+id/submarineView2"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="20dp"
+    android:alpha="0.8"
+    app:submarine_animation="scale"
+    app:submarine_autoDip="true"
+    app:submarine_autoNavigate="true"
+    app:submarine_borderColor="@color/colorPrimaryDark"
+    app:submarine_borderSize="1dp"
+    app:submarine_circleAnchor="right"
     app:submarine_circleBorderColor="@color/preview"
     app:submarine_circleBorderSize="1dp"
     app:submarine_circleDrawable="@drawable/background"

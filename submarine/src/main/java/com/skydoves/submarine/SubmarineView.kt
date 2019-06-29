@@ -44,7 +44,7 @@ class SubmarineView : FrameLayout {
   val circleIcon = CircleImageView(context)
   val recyclerView = RecyclerView(context)
   var autoNavigate = true
-  var autoRetreat = true
+  var autoDip = true
   var duration = 350L
 
   var circleSize = 52f
@@ -92,7 +92,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  var expandSize = context.displaySize().x - dp2Px(20)
+  var expandSize = context.displaySize().x - dp2Px(30)
     set(value) {
       field = value
       updateSubmarine()
@@ -161,7 +161,7 @@ class SubmarineView : FrameLayout {
       2 -> this.submarineAnimation = SubmarineAnimation.SCALE
     }
     this.autoNavigate = a.getBoolean(R.styleable.SubmarineView_submarine_autoNavigate, this.autoNavigate)
-    this.autoRetreat = a.getBoolean(R.styleable.SubmarineView_submarine_autoRetreat, this.autoRetreat)
+    this.autoDip = a.getBoolean(R.styleable.SubmarineView_submarine_autoDip, this.autoDip)
     this.duration = a.getInt(R.styleable.SubmarineView_submarine_duration, this.duration.toInt()).toLong()
     this.circleSize = a.getDimension(R.styleable.SubmarineView_submarine_circleSize, this.circleSize)
     this.circleImage = a.getDrawable(R.styleable.SubmarineView_submarine_circleDrawable)
@@ -193,11 +193,11 @@ class SubmarineView : FrameLayout {
   private fun updateSize() {
     this.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
       override fun onGlobalLayout() {
+        viewTreeObserver.removeOnGlobalLayoutListener(this)
         updateLayoutParams {
           width = dp2Px(circleSize)
           height = dp2Px(circleSize)
         }
-        viewTreeObserver.removeOnGlobalLayoutListener(this)
       }
     })
   }
@@ -343,7 +343,7 @@ class SubmarineView : FrameLayout {
           .doAfterAnimate {
             if (!isNavigating) {
               recyclerView.visible(false)
-              autoRetreat()
+              autoDip()
             }
           }
       } else if (orientation == SubmarineOrientation.VERTICAL) {
@@ -352,7 +352,7 @@ class SubmarineView : FrameLayout {
           .doAfterAnimate {
             if (!isNavigating) {
               recyclerView.visible(false)
-              autoRetreat()
+              autoDip()
             }
           }
       }
@@ -362,7 +362,7 @@ class SubmarineView : FrameLayout {
   /** dips the circle icon on the layer. */
   fun dip() {
     if (isFloating) {
-      if (isNavigating && autoRetreat) {
+      if (isNavigating && autoDip) {
         retreat()
       } else if (!isNavigating) {
         isFloating = false
@@ -396,9 +396,9 @@ class SubmarineView : FrameLayout {
     }
   }
 
-  /** dips if the [autoRetreat] attribute is true. */
-  private fun autoRetreat() {
-    if (autoRetreat) {
+  /** dips if the [autoDip] attribute is true. */
+  private fun autoDip() {
+    if (autoDip) {
       dip()
     }
   }
@@ -453,7 +453,14 @@ class SubmarineView : FrameLayout {
 
   /** gets recyclerView's size. */
   private fun getRecyclerViewSize(): Int {
-    return expandSize - getCircleViewAllocation()
+    val params = layoutParams
+    var width = expandSize - getCircleViewAllocation()
+    if (params is MarginLayoutParams) {
+      val margins = (params.leftMargin + params.rightMargin)
+      val space = context.displaySize().x - expandSize - margins
+      if (space < 0) width += space
+    }
+    return width
   }
 
   /** gets px size from the dp size. */

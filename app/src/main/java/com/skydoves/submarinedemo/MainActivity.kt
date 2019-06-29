@@ -20,12 +20,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.submarine.SubmarineCircleClickListener
 import com.skydoves.submarine.SubmarineItem
 import com.skydoves.submarine.SubmarineItemClickListener
-import com.skydoves.submarine.iconForm
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(),
@@ -47,14 +47,27 @@ class MainActivity : AppCompatActivity(),
     submarineView.submarineCircleClickListener = this
     submarineView.float()
 
-    val form = iconForm(this) {
-      iconSize = 40
-      iconColor = ContextCompat.getColor(baseContext, R.color.colorPrimary)
+    scrollView.setOnScrollChangeListener { _: NestedScrollView?, _: Int, scrollY: Int, _: Int, _: Int ->
+      if (!submarineView2.isFloating) {
+        if (scrollY == 0) submarineView.float()
+        else submarineView.retreat()
+      } else if (submarineView.isFloating) {
+        submarineView.retreat()
+      } else if (submarineView2.isFloating) {
+        submarineView2.retreat()
+      }
     }
 
     submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_edit)))
-    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_cut)))
+    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_wallpaper)))
+    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_archive)))
     submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_share)))
+
+    submarineView2.submarineItemClickListener = this
+    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_star)))
+    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_style)))
+    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_office)))
+    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_phone)))
   }
 
   override fun onCircleClick() {
@@ -66,9 +79,35 @@ class MainActivity : AppCompatActivity(),
   }
 
   override fun onItemClick(position: Int, submarineItem: SubmarineItem) {
-    Toast.makeText(baseContext, "$position", Toast.LENGTH_SHORT).show()
+    if (submarineView.isFloating) {
+      submarineView.retreat()
+      when (position) {
+        0 -> toast("edit")
+        1 -> toast("style")
+        2 -> toast("download")
+        3 -> toast("share")
+      }
+    } else if (submarineView2.isFloating) {
+      submarineView2.retreat()
+      when (position) {
+        0 -> toast("star")
+        1 -> toast("tag")
+        2 -> toast("email")
+        3 -> toast("phone")
+      }
+    }
   }
 
   override fun onItemClick(sampleItem: SampleItem) {
+    if (submarineView2.isFloating) {
+      submarineView2.retreat()
+    } else if (!submarineView.isFloating) {
+      submarineView2.circleIcon.setImageDrawable(sampleItem.image)
+      submarineView2.float()
+    }
+  }
+
+  private fun toast(content: String) {
+    Toast.makeText(baseContext, content, Toast.LENGTH_SHORT).show()
   }
 }

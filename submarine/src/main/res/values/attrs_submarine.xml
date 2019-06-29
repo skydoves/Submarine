@@ -17,7 +17,7 @@
       <enum name="scale" value="2" />
     </attr>
     <attr name="submarine_autoNavigate" format="boolean" />
-    <attr name="submarine_autoRetreat" format="boolean" />
+    <attr name="submarine_autoDip" format="boolean" />
     <attr name="submarine_duration" format="integer" />
     <attr name="submarine_circleSize" format="dimension" />
     <attr name="submarine_circleDrawable" format="reference" />
