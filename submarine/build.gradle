@@ -20,7 +20,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$versions.recyclerView"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation "com.github.skydoves:baserecyclerviewadapter:$versions.baseAdapter"
-    implementation "de.hdodenhof:circleimageview:$versions.circleimageview"
+    api "de.hdodenhof:circleimageview:$versions.circleimageview"
 }
 
 dokka {
