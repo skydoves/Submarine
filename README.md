@@ -155,11 +155,31 @@ Vertical and Top | Vertical and Bottom
 ### SubmarineAnimation
 SubmarineAnimation decides the animation of `float` and `dip` methods.
 ```gradle
-app:submarine_animation="scale"
+app:submarine_animation="scale" // scale, fade, none
 ```
 SCALE | FADE
 ------------ | -------------
 ![or00](https://user-images.githubusercontent.com/24237865/60387040-bc0b9580-9ad8-11e9-9f5b-8b3f634a8a91.gif)| ![or05](https://user-images.githubusercontent.com/24237865/60387168-47395b00-9ada-11e9-93d1-5957b89bd677.gif)
+
+## SubmarineView Attributes
+Attributes | Type | Default | Description
+--- | --- | --- | ---
+orientation | SubmarineOrientation | Horizontal | navigation's spreading orientation.
+duration | Long | 350L | navigation's spreading duration.
+color | Int(Color) | Color.Black | navigation's background color.
+animation | SubmarineAnimation | None | floating, dipping animation style.
+borderSize | Dimension | 0f | navigation's border thickness.
+borderColor | Int(Color) | Color.Green | navigation's border color.
+expandSize | Dimension | display width size - 20dp size | navigation's width or height size after expands.
+radius | Dimension | 15dp | navigation's corder radius.
+autoNavigate | Boolean | true | executes `navigate` method automatically after executing `float` method.
+autoDip | Boolean | true | executes `dip` method automatically after executeing `retreat` method.
+circleAnchor | CircleAnchor | Left | decides where to moves the circle icon.
+circleSize | Dimension | 20dp | circle icon's size. It decides the height or width of navigation.
+circleDrawable | Drawable | null | circle icon's image drawable.
+circleBorderSize | Dimension | 0f | circle icon's border thickness.
+circleBorderColor | Int(Color) | 0f | circle icon's border color.
+circlePadding | Dimension | 0f | circle icon's padding width.
 
 ## Find this library useful? :heart:
 Support it by joining __[stargazers](https://github.com/skydoves/submarine/stargazers)__ for this repository. :star:
