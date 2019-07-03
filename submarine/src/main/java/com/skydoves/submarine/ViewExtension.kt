@@ -18,12 +18,12 @@
 
 package com.skydoves.submarine
 
-import android.transition.ChangeBounds
-import android.transition.TransitionManager
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewPropertyAnimator
 import android.widget.FrameLayout
+import androidx.transition.ChangeBounds
+import androidx.transition.TransitionManager
 
 /** begins delayed transition. */
 internal fun ViewGroup.beginDelayedTransition(duration: Long) {
