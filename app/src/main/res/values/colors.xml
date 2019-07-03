@@ -8,4 +8,10 @@
   <color name="background900">#212121</color>
   <color name="preview">#b0abb0</color>
   <color name="white">#ffffff</color>
+  <color name="red">#C51162</color>
+  <color name="amber">#FF6F00</color>
+  <color name="yellow">#FBC02D</color>
+  <color name="green">#388E3C</color>
+  <color name="blue01">#4E71E6</color>
+  <color name="blue02">#8258E9</color>
 </resources>

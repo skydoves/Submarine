@@ -12,8 +12,9 @@ Fully customizable floating navigation view for listing items dynamically on And
 </p>
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/24237865/60386446-c4ab9e00-9acf-11e9-8e58-02f758f9667c.gif"/>
-<img src="https://user-images.githubusercontent.com/24237865/60386447-c4ab9e00-9acf-11e9-872a-dfd6ca23ad4f.gif"/>
+<img src="https://user-images.githubusercontent.com/24237865/60386446-c4ab9e00-9acf-11e9-8e58-02f758f9667c.gif" width="32%"/>
+<img src="https://user-images.githubusercontent.com/24237865/60386447-c4ab9e00-9acf-11e9-872a-dfd6ca23ad4f.gif" width="32%"/>
+<img src="https://user-images.githubusercontent.com/24237865/60612724-4e2adb00-9e04-11e9-84e4-e7633ca9b97f.gif" width="32%"/>
 </p>
 
 ## Including in your project 

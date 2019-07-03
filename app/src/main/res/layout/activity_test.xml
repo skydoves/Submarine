@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/background">
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.skydoves.submarine.SubmarineView
+      android:id="@+id/submarineView"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_margin="20dp"
+      app:submarine_animation="scale"
+      app:submarine_autoDip="true"
+      app:submarine_autoNavigate="true"
+      app:submarine_borderColor="@color/grass"
+      app:submarine_borderSize="1dp"
+      app:submarine_circleAnchor="left"
+      app:submarine_circleDrawable="@drawable/background"
+      app:submarine_circlePadding="2dp"
+      app:submarine_circleSize="22dp"
+      app:submarine_color="@android:color/black"
+      app:submarine_duration="300"
+      app:submarine_orientation="horizontal" />
+
+    <com.skydoves.submarine.SubmarineView
+      android:id="@+id/submarineView2"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_gravity="end"
+      android:layout_marginRight="10dp"
+      app:submarine_animation="scale"
+      app:submarine_autoDip="true"
+      app:submarine_autoNavigate="true"
+      app:submarine_borderColor="@color/colorPrimaryDark"
+      app:submarine_borderSize="1dp"
+      app:submarine_circleAnchor="right"
+      app:submarine_circleBorderColor="@color/preview"
+      app:submarine_circleBorderSize="1dp"
+      app:submarine_circleDrawable="@drawable/background"
+      app:submarine_circlePadding="2dp"
+      app:submarine_circleSize="22dp"
+      app:submarine_color="@android:color/black"
+      app:submarine_duration="300"
+      app:submarine_orientation="horizontal" />
+
+    <com.skydoves.submarine.SubmarineView
+      android:id="@+id/submarineView3"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_gravity="end"
+      android:layout_margin="20dp"
+      app:submarine_animation="scale"
+      app:submarine_autoDip="true"
+      app:submarine_autoNavigate="true"
+      app:submarine_borderColor="@color/blue02"
+      app:submarine_borderSize="1dp"
+      app:submarine_circleAnchor="left"
+      app:submarine_circleBorderColor="@color/blue01"
+      app:submarine_circleBorderSize="1dp"
+      app:submarine_circleDrawable="@drawable/ic_launcher"
+      app:submarine_circlePadding="2dp"
+      app:submarine_circleSize="22dp"
+      app:submarine_color="@android:color/black"
+      app:submarine_duration="300"
+      app:submarine_orientation="horizontal" />
+
+    <com.skydoves.submarine.SubmarineView
+      android:id="@+id/submarineView4"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_marginLeft="20dp"
+      app:submarine_animation="scale"
+      app:submarine_autoDip="true"
+      app:submarine_autoNavigate="true"
+      app:submarine_borderColor="@color/amber"
+      app:submarine_borderSize="1dp"
+      app:submarine_circleAnchor="right"
+      app:submarine_circleBorderColor="@color/amber"
+      app:submarine_circleBorderSize="1dp"
+      app:submarine_circleDrawable="@drawable/bird"
+      app:submarine_circlePadding="2dp"
+      app:submarine_circleSize="22dp"
+      app:submarine_color="@android:color/black"
+      app:submarine_duration="300"
+      app:submarine_orientation="horizontal" />
+
+    <com.skydoves.submarine.SubmarineView
+      android:id="@+id/submarineView5"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="20dp"
+      app:submarine_animation="scale"
+      app:submarine_autoDip="true"
+      app:submarine_autoNavigate="true"
+      app:submarine_circleAnchor="right"
+      app:submarine_circleBorderColor="@color/red"
+      app:submarine_circleBorderSize="1dp"
+      app:submarine_circleDrawable="@drawable/palette"
+      app:submarine_circlePadding="2dp"
+      app:submarine_circleSize="22dp"
+      app:submarine_color="@android:color/black"
+      app:submarine_duration="300"
+      app:submarine_orientation="horizontal" />
+
+    <com.skydoves.submarine.SubmarineView
+      android:id="@+id/submarineView6"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="20dp"
+      android:alpha="0.9"
+      app:submarine_animation="scale"
+      app:submarine_autoDip="true"
+      app:submarine_autoNavigate="true"
+      app:submarine_borderColor="@color/colorPrimaryDark"
+      app:submarine_borderSize="1dp"
+      app:submarine_circleAnchor="left"
+      app:submarine_circleDrawable="@drawable/palette"
+      app:submarine_circlePadding="2dp"
+      app:submarine_circleSize="22dp"
+      app:submarine_color="@color/white_three"
+      app:submarine_duration="300"
+      app:submarine_orientation="horizontal" />
+  </LinearLayout>
+
+  <Button
+    android:id="@+id/button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="center_horizontal|bottom"
+    android:layout_margin="30dp"
+    android:background="@color/blue02"
+    android:text="float"
+    android:textColor="@color/white" />
+</RelativeLayout>
