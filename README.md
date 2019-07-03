@@ -1,13 +1,24 @@
 # Submarine
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=19) <br>
-Fully customizable floating navigation view for listing items dynamically on Android.
 
-![art0](https://user-images.githubusercontent.com/24237865/60386446-c4ab9e00-9acf-11e9-8e58-02f758f9667c.gif)
-![art1](https://user-images.githubusercontent.com/24237865/60386447-c4ab9e00-9acf-11e9-872a-dfd6ca23ad4f.gif)
+<p align="center">
+  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
+  <a href="https://android-arsenal.com/api?level=19"><img alt="API" src="https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=flat"/></a>
+  <a href="https://travis-ci.org/skydoves/Submarine"><img alt="API" src="https://travis-ci.org/skydoves/Submarine.svg?branch=master"/></a>
+  <a href="https://skydoves.github.io/libraries/submarine/javadoc/submarnie/com.skydoves.submarine/index.html"><img alt="Javadoc" src="https://img.shields.io/badge/Javadoc-Submarine-yellow.svg"/></a>
+</p>
+
+<p align="center">
+Fully customizable floating navigation view for listing items dynamically on Android.
+</p>
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/24237865/60386446-c4ab9e00-9acf-11e9-8e58-02f758f9667c.gif"/>
+<img src="https://user-images.githubusercontent.com/24237865/60386447-c4ab9e00-9acf-11e9-872a-dfd6ca23ad4f.gif"/>
+</p>
 
 ## Including in your project 
-
+[![Download](https://api.bintray.com/packages/devmagician/maven/submarine/images/download.svg)](https://bintray.com/devmagician/maven/submarine/_latestVersion)
+[![Jtpack](https://jitpack.io/v/skydoves/Submarine.svg)](https://jitpack.io/#skydoves/Submarine)
 ### Gradle 
 Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
 ```gradle
@@ -145,11 +156,31 @@ Vertical and Top | Vertical and Bottom
 ### SubmarineAnimation
 SubmarineAnimation decides the animation of `float` and `dip` methods.
 ```gradle
-app:submarine_animation="scale"
+app:submarine_animation="scale" // scale, fade, none
 ```
 SCALE | FADE
 ------------ | -------------
 ![or00](https://user-images.githubusercontent.com/24237865/60387040-bc0b9580-9ad8-11e9-9f5b-8b3f634a8a91.gif)| ![or05](https://user-images.githubusercontent.com/24237865/60387168-47395b00-9ada-11e9-93d1-5957b89bd677.gif)
+
+## SubmarineView Attributes
+Attributes | Type | Default | Description
+--- | --- | --- | ---
+orientation | SubmarineOrientation | Horizontal | navigation's spreading orientation.
+duration | Long | 350L | navigation's spreading duration.
+color | Int(Color) | Color.Black | navigation's background color.
+animation | SubmarineAnimation | None | floating, dipping animation style.
+borderSize | Dimension | 0f | navigation's border thickness.
+borderColor | Int(Color) | Color.Green | navigation's border color.
+expandSize | Dimension | display width size - 20dp size | navigation's width or height size after expands.
+radius | Dimension | 15dp | navigation's corder radius.
+autoNavigate | Boolean | true | executes `navigate` method automatically after executing `float` method.
+autoDip | Boolean | true | executes `dip` method automatically after executeing `retreat` method.
+circleAnchor | CircleAnchor | Left | decides where to moves the circle icon.
+circleSize | Dimension | 20dp | circle icon's size. It decides the height or width of navigation.
+circleDrawable | Drawable | null | circle icon's image drawable.
+circleBorderSize | Dimension | 0f | circle icon's border thickness.
+circleBorderColor | Int(Color) | 0f | circle icon's border color.
+circlePadding | Dimension | 0f | circle icon's padding width.
 
 ## Find this library useful? :heart:
 Support it by joining __[stargazers](https://github.com/skydoves/submarine/stargazers)__ for this repository. :star:
