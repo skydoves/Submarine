@@ -175,7 +175,7 @@ borderColor | Int(Color) | Color.Green | navigation's border color.
 expandSize | Dimension | display width size - 20dp size | navigation's width or height size after expands.
 radius | Dimension | 15dp | navigation's corder radius.
 autoNavigate | Boolean | true | executes `navigate` method automatically after executing `float` method.
-autoDip | Boolean | true | executes `dip` method automatically after executeing `retreat` method.
+autoDip | Boolean | true | executes `dip` method automatically after executing `retreat` method.
 circleAnchor | CircleAnchor | Left | decides where to moves the circle icon.
 circleSize | Dimension | 20dp | circle icon's size. It decides the height or width of navigation.
 circleDrawable | Drawable | null | circle icon's image drawable.
