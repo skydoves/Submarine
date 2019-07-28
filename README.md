@@ -1,9 +1,9 @@
 # Submarine
-
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=16"><img alt="API" src="https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat"/></a>
   <a href="https://travis-ci.org/skydoves/Submarine"><img alt="API" src="https://travis-ci.org/skydoves/Submarine.svg?branch=master"/></a>
+  <a href="https://androidweekly.net/issues/issue-372"><img alt="Android Weekly" src="https://img.shields.io/badge/Android%20Weekly-%23372-orange"/></a>
   <a href="https://skydoves.github.io/libraries/submarine/javadoc/submarnie/com.skydoves.submarine/index.html"><img alt="Javadoc" src="https://img.shields.io/badge/Javadoc-Submarine-yellow.svg"/></a>
 </p>
 
@@ -146,13 +146,9 @@ private object onCircleIconClickListener: SubmarineCircleClickListener {
 app:submarine_circleAnchor="right" // left, right, top, bottom
 app:submarine_orientation="horizontal" // horizontal, vertical
 ```
-Horizontal and Left | Horizontal and Right
------------- | -------------
-![or00](https://user-images.githubusercontent.com/24237865/60387040-bc0b9580-9ad8-11e9-9f5b-8b3f634a8a91.gif)| ![or01](https://user-images.githubusercontent.com/24237865/60387041-bc0b9580-9ad8-11e9-927f-0d0758b553de.gif)
-
-Vertical and Top | Vertical and Bottom
------------- | -------------
-![or03](https://user-images.githubusercontent.com/24237865/60387043-bca42c00-9ad8-11e9-82a1-3d6cd7b10931.gif)| ![or02](https://user-images.githubusercontent.com/24237865/60387042-bca42c00-9ad8-11e9-8e17-5d9d843bb99d.gif)
+Horizontal and Left | Horizontal and Right | Vertical and Top | Vertical and Bottom |
+| :---------------: | :---------------: | :---------------: | :---------------: |
+![or00](https://user-images.githubusercontent.com/24237865/60387040-bc0b9580-9ad8-11e9-9f5b-8b3f634a8a91.gif)| ![or01](https://user-images.githubusercontent.com/24237865/60387041-bc0b9580-9ad8-11e9-927f-0d0758b553de.gif) | ![or03](https://user-images.githubusercontent.com/24237865/60387043-bca42c00-9ad8-11e9-82a1-3d6cd7b10931.gif)| ![or02](https://user-images.githubusercontent.com/24237865/60387042-bca42c00-9ad8-11e9-8e17-5d9d843bb99d.gif)
 
 ### SubmarineAnimation
 SubmarineAnimation decides the animation of `float` and `dip` methods.
