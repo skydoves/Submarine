@@ -75,6 +75,24 @@ submarineView.float() // shows
 submarineView.dip() // makes disappear
 ```
 
+### Navigate and Retreat
+We can make the SubmarineView always floating (without appear, disappear actions) and navigating when we want.
+
+Firstly, add below attributes to SubmarineView on your xml file.
+```gradle
+app:submarine_autoDip="false"
+app:submarine_autoNavigate="false"
+```
+And call `float()` method before using `navigate()` method.
+```kotlin
+submarineView.float()
+```
+Unfold and fold using the below methods.
+```kotlin
+submarineView.navigate() // unfold
+submarineView.retreat() // fold
+```
+
 ### SubmarineItem
 SubmarineItem is a data class for composing navigation list.
 ```kotlin
