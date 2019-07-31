@@ -67,7 +67,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  var circleBorderColor = ContextCompat.getColor(context, R.color.grass)
+  var circleBorderColor = ContextCompat.getColor(context, R.color.submarine_grass)
     set(value) {
       field = value
       updateSubmarine()
@@ -77,7 +77,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  var color = ContextCompat.getColor(context, R.color.grass)
+  var color = ContextCompat.getColor(context, R.color.submarine_grass)
     set(value) {
       field = value
       updateSubmarine()
@@ -87,7 +87,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  var borderColor = ContextCompat.getColor(context, R.color.grass)
+  var borderColor = ContextCompat.getColor(context, R.color.submarine_grass)
     set(value) {
       field = value
       updateSubmarine()

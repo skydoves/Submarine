@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="@color/background">
@@ -19,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:scaleType="fitXY"
-        android:src="@drawable/background" />
+        android:src="@drawable/background"
+        tools:ignore="ContentDescription" />
 
       <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -27,7 +29,6 @@
         android:layout_height="match_parent"
         android:padding="6dp" />
     </LinearLayout>
-
   </androidx.core.widget.NestedScrollView>
 
   <com.skydoves.submarine.SubmarineView
@@ -41,7 +42,7 @@
     app:submarine_animation="scale"
     app:submarine_autoDip="true"
     app:submarine_autoNavigate="true"
-    app:submarine_borderColor="@color/grass"
+    app:submarine_borderColor="@color/submarine_grass"
     app:submarine_borderSize="1dp"
     app:submarine_circleAnchor="left"
     app:submarine_circleBorderColor="@color/preview"
@@ -57,11 +58,14 @@
     android:id="@+id/submarineView2"
     android:layout_width="50dp"
     android:layout_height="50dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentBottom="true"
     android:layout_margin="20dp"
     android:alpha="0.8"
     app:submarine_animation="scale"
     app:submarine_autoDip="true"
-    app:submarine_autoNavigate="false"
+    app:submarine_autoNavigate="true"
     app:submarine_borderColor="@color/colorPrimaryDark"
     app:submarine_borderSize="1dp"
     app:submarine_circleAnchor="right"

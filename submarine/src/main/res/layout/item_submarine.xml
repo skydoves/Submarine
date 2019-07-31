@@ -13,5 +13,5 @@
     android:layout_centerInParent="true"
     android:padding="4dp"
     android:scaleType="fitXY"
-    tools:src="@drawable/ic_icon" />
+    tools:ignore="ContentDescription" />
 </RelativeLayout>

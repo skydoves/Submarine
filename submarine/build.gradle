@@ -16,11 +16,11 @@ android {
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
     implementation "androidx.recyclerview:recyclerview:$versions.recyclerView"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation "com.github.skydoves:baserecyclerviewadapter:$versions.baseAdapter"
     implementation "androidx.transition:transition:$versions.transition"
+    implementation "com.github.skydoves:baserecyclerviewadapter:$versions.baseAdapter"
     api "de.hdodenhof:circleimageview:$versions.circleimageview"
 }
 

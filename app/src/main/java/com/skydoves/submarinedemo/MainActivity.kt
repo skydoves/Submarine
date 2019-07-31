@@ -50,11 +50,11 @@ class MainActivity : AppCompatActivity(),
     scrollView.setOnScrollChangeListener { _: NestedScrollView?, _: Int, scrollY: Int, _: Int, _: Int ->
       if (!submarineView2.isFloating) {
         if (scrollY == 0) submarineView.float()
-        else submarineView.retreat()
+        else submarineView.dip()
       } else if (submarineView.isFloating) {
-        submarineView.retreat()
+        submarineView.dip()
       } else if (submarineView2.isFloating) {
-        submarineView2.retreat()
+        submarineView2.dip()
       }
     }
 
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity(),
 
   override fun onItemClick(position: Int, submarineItem: SubmarineItem) {
     if (submarineView.isFloating) {
-      submarineView.retreat()
+      submarineView.dip()
       when (position) {
         0 -> toast("edit")
         1 -> toast("style")
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity(),
         3 -> toast("share")
       }
     } else if (submarineView2.isFloating) {
-      submarineView2.retreat()
+      submarineView2.dip()
       when (position) {
         0 -> toast("star")
         1 -> toast("tag")
@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity(),
 
   override fun onItemClick(sampleItem: SampleItem) {
     if (submarineView2.isFloating) {
-      submarineView2.retreat()
+      submarineView2.dip()
     } else if (!submarineView.isFloating) {
       submarineView2.circleIcon.setImageDrawable(sampleItem.image)
       submarineView2.float()

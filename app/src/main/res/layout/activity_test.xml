@@ -18,7 +18,7 @@
       app:submarine_animation="scale"
       app:submarine_autoDip="true"
       app:submarine_autoNavigate="true"
-      app:submarine_borderColor="@color/grass"
+      app:submarine_borderColor="@color/submarine_grass"
       app:submarine_borderSize="1dp"
       app:submarine_circleAnchor="left"
       app:submarine_circleDrawable="@drawable/background"
@@ -33,6 +33,7 @@
       android:layout_width="50dp"
       android:layout_height="50dp"
       android:layout_gravity="end"
+      android:layout_marginEnd="10dp"
       android:layout_marginRight="10dp"
       app:submarine_animation="scale"
       app:submarine_autoDip="true"
@@ -74,6 +75,7 @@
       android:id="@+id/submarineView4"
       android:layout_width="50dp"
       android:layout_height="50dp"
+      android:layout_marginStart="20dp"
       android:layout_marginLeft="20dp"
       app:submarine_animation="scale"
       app:submarine_autoDip="true"
@@ -125,7 +127,7 @@
       app:submarine_circleDrawable="@drawable/palette"
       app:submarine_circlePadding="2dp"
       app:submarine_circleSize="22dp"
-      app:submarine_color="@color/white_three"
+      app:submarine_color="@color/submarine_white"
       app:submarine_duration="300"
       app:submarine_orientation="horizontal" />
   </LinearLayout>
