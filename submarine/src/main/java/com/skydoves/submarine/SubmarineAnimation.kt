@@ -21,8 +21,8 @@ package com.skydoves.submarine
  * appearing and disappearing [SubmarineView] with animations.
  */
 @Suppress("unused")
-enum class SubmarineAnimation {
-  NONE,
-  FADE,
-  SCALE,
+enum class SubmarineAnimation(val value: Int) {
+  NONE(0),
+  FADE(1),
+  SCALE(2),
 }

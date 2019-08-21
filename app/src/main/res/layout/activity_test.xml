@@ -18,7 +18,7 @@
       app:submarine_animation="scale"
       app:submarine_autoDip="true"
       app:submarine_autoNavigate="true"
-      app:submarine_borderColor="@color/submarine_grass"
+      app:submarine_borderColor="@color/colorPrimary"
       app:submarine_borderSize="1dp"
       app:submarine_circleAnchor="left"
       app:submarine_circleDrawable="@drawable/background"

@@ -67,7 +67,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  var circleBorderColor = ContextCompat.getColor(context, R.color.submarine_grass)
+  var circleBorderColor = ContextCompat.getColor(context, R.color.colorPrimary)
     set(value) {
       field = value
       updateSubmarine()
@@ -77,7 +77,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  var color = ContextCompat.getColor(context, R.color.submarine_grass)
+  var color = ContextCompat.getColor(context, R.color.colorPrimary)
     set(value) {
       field = value
       updateSubmarine()
@@ -87,7 +87,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  var borderColor = ContextCompat.getColor(context, R.color.submarine_grass)
+  var borderColor = ContextCompat.getColor(context, R.color.colorPrimary)
     set(value) {
       field = value
       updateSubmarine()
@@ -145,17 +145,17 @@ class SubmarineView : FrameLayout {
   }
 
   private fun setTypeArray(a: TypedArray) {
-    when (a.getInt(R.styleable.SubmarineView_submarine_orientation, 0)) {
+    when (a.getInt(R.styleable.SubmarineView_submarine_orientation, SubmarineOrientation.HORIZONTAL.value)) {
       0 -> this.orientation = SubmarineOrientation.HORIZONTAL
       1 -> this.orientation = SubmarineOrientation.VERTICAL
     }
-    when (a.getInt(R.styleable.SubmarineView_submarine_circleAnchor, 0)) {
+    when (a.getInt(R.styleable.SubmarineView_submarine_circleAnchor, CircleAnchor.LEFT.value)) {
       0 -> this.circleAnchor = CircleAnchor.LEFT
       1 -> this.circleAnchor = CircleAnchor.RIGHT
       2 -> this.circleAnchor = CircleAnchor.TOP
       3 -> this.circleAnchor = CircleAnchor.BOTTOM
     }
-    when (a.getInt(R.styleable.SubmarineView_submarine_animation, 0)) {
+    when (a.getInt(R.styleable.SubmarineView_submarine_animation, SubmarineAnimation.NONE.value)) {
       0 -> this.submarineAnimation = SubmarineAnimation.NONE
       1 -> this.submarineAnimation = SubmarineAnimation.FADE
       2 -> this.submarineAnimation = SubmarineAnimation.SCALE
@@ -204,7 +204,7 @@ class SubmarineView : FrameLayout {
 
   /** updates background and bordering. */
   private fun updateBackground() {
-    drawable = ContextCompat.getDrawable(context, R.drawable.rectangle_layout) as GradientDrawable
+    drawable = GradientDrawable()
     drawable.cornerRadius = radius
     drawable.setColor(color)
     if (borderSize != 0f) {

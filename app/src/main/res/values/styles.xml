@@ -4,6 +4,6 @@
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
-    <item name="colorControlHighlight">@color/submarine_grass</item>
+    <item name="colorControlHighlight">@color/colorPrimary</item>
   </style>
 </resources>
