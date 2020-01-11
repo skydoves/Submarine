@@ -17,39 +17,11 @@
 package com.skydoves.submarinedemo
 
 import android.view.View
-import com.skydoves.baserecyclerviewadapter.BaseViewHolder
-import kotlinx.android.synthetic.main.item_sample.view.*
+import androidx.recyclerview.widget.RecyclerView
 
-@Suppress("CanBeParameter")
-class SampleViewHolder(
-  private val view: View,
-  private val delegate: Delegate
-) : BaseViewHolder(view) {
+class SampleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
   interface Delegate {
     fun onItemClick(sampleItem: SampleItem)
   }
-
-  private lateinit var sampleItem: SampleItem
-
-  override fun bindData(data: Any) {
-    if (data is SampleItem) {
-      sampleItem = data
-      drawItem()
-    }
-  }
-
-  private fun drawItem() {
-    itemView.run {
-      sample0_avatar.setImageDrawable(sampleItem.image)
-      sample0_name.text = sampleItem.name
-      sample0_content.text = sampleItem.content
-    }
-  }
-
-  override fun onClick(v: View?) {
-    delegate.onItemClick(this.sampleItem)
-  }
-
-  override fun onLongClick(v: View?) = false
 }

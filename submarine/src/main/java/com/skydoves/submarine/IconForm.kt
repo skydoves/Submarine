@@ -20,6 +20,8 @@ package com.skydoves.submarine
 
 import android.content.Context
 import android.widget.ImageView
+import androidx.annotation.ColorInt
+import androidx.annotation.Px
 import androidx.core.content.ContextCompat
 
 @DslMarker
@@ -36,24 +38,22 @@ fun iconForm(context: Context, block: IconForm.Builder.() -> Unit): IconForm =
  */
 class IconForm(builder: Builder) {
 
-  val iconSize = builder.iconSize
-  val iconColor = builder.iconColor
+  @Px val iconSize = builder.iconSize
+  @ColorInt val iconColor = builder.iconColor
   val iconScaleType = builder.iconScaleType
 
   /** Builder class for[IconForm]. */
   class Builder(context: Context) {
-    @JvmField
+    @JvmField @Px
     var iconSize = 40
-    @JvmField
+    @JvmField @ColorInt
     var iconColor = ContextCompat.getColor(context, R.color.submarine_white)
     @JvmField
     var iconScaleType = ImageView.ScaleType.FIT_XY
 
-    fun setIconSize(value: Int): Builder = apply { this.iconSize = value }
-    fun setIconTint(value: Int): Builder = apply { this.iconColor = value }
+    fun setIconSize(@Px value: Int): Builder = apply { this.iconSize = value }
+    fun setIconTint(@ColorInt value: Int): Builder = apply { this.iconColor = value }
     fun setIconScaleType(value: ImageView.ScaleType): Builder = apply { this.iconScaleType = value }
-    fun build(): IconForm {
-      return IconForm(this)
-    }
+    fun build() = IconForm(this)
   }
 }

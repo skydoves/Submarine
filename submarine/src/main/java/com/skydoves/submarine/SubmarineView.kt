@@ -24,6 +24,8 @@ import android.util.AttributeSet
 import android.view.ViewTreeObserver
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.annotation.ColorInt
+import androidx.annotation.Px
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,7 +49,7 @@ class SubmarineView : FrameLayout {
   var autoDip = true
   var duration = 350L
 
-  var circleSize = 52f
+  @Px var circleSize = 52f
     set(value) {
       field = value
       updateSubmarine()
@@ -57,42 +59,42 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  var circlePadding = 4f
+  @Px var circlePadding = 4f
     set(value) {
       field = value
       updateSubmarine()
     }
-  var circleBorderSize = 0f
+  @Px var circleBorderSize = 0f
     set(value) {
       field = value
       updateSubmarine()
     }
-  var circleBorderColor = ContextCompat.getColor(context, R.color.colorPrimary)
+  @ColorInt var circleBorderColor = ContextCompat.getColor(context, R.color.colorPrimary)
     set(value) {
       field = value
       updateSubmarine()
     }
-  var radius = dp2Px(48).toFloat()
+  @Px var radius = dp2Px(48).toFloat()
     set(value) {
       field = value
       updateSubmarine()
     }
-  var color = ContextCompat.getColor(context, R.color.colorPrimary)
+  @ColorInt var color = ContextCompat.getColor(context, R.color.colorPrimary)
     set(value) {
       field = value
       updateSubmarine()
     }
-  var borderSize = 0f
+  @Px var borderSize = 0f
     set(value) {
       field = value
       updateSubmarine()
     }
-  var borderColor = ContextCompat.getColor(context, R.color.colorPrimary)
+  @ColorInt var borderColor = ContextCompat.getColor(context, R.color.colorPrimary)
     set(value) {
       field = value
       updateSubmarine()
     }
-  var expandSize = context.displaySize().x - dp2Px(30)
+  @Px var expandSize = context.displaySize().x - dp2Px(30)
     set(value) {
       field = value
       updateSubmarine()
@@ -122,7 +124,8 @@ class SubmarineView : FrameLayout {
     getAttrs(attributeSet)
   }
 
-  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context, attributeSet, defStyle) {
+  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context,
+    attributeSet, defStyle) {
     getAttrs(attributeSet, defStyle)
   }
 
@@ -136,7 +139,8 @@ class SubmarineView : FrameLayout {
   }
 
   private fun getAttrs(attributeSet: AttributeSet, defStyleAttr: Int) {
-    val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.SubmarineView, defStyleAttr, 0)
+    val typedArray =
+      context.obtainStyledAttributes(attributeSet, R.styleable.SubmarineView, defStyleAttr, 0)
     try {
       setTypeArray(typedArray)
     } finally {
@@ -145,7 +149,8 @@ class SubmarineView : FrameLayout {
   }
 
   private fun setTypeArray(a: TypedArray) {
-    when (a.getInt(R.styleable.SubmarineView_submarine_orientation, SubmarineOrientation.HORIZONTAL.value)) {
+    when (a.getInt(R.styleable.SubmarineView_submarine_orientation,
+      SubmarineOrientation.HORIZONTAL.value)) {
       0 -> this.orientation = SubmarineOrientation.HORIZONTAL
       1 -> this.orientation = SubmarineOrientation.VERTICAL
     }
@@ -160,19 +165,28 @@ class SubmarineView : FrameLayout {
       1 -> this.submarineAnimation = SubmarineAnimation.FADE
       2 -> this.submarineAnimation = SubmarineAnimation.SCALE
     }
-    this.autoNavigate = a.getBoolean(R.styleable.SubmarineView_submarine_autoNavigate, this.autoNavigate)
+    this.autoNavigate =
+      a.getBoolean(R.styleable.SubmarineView_submarine_autoNavigate, this.autoNavigate)
     this.autoDip = a.getBoolean(R.styleable.SubmarineView_submarine_autoDip, this.autoDip)
-    this.duration = a.getInt(R.styleable.SubmarineView_submarine_duration, this.duration.toInt()).toLong()
-    this.circleSize = a.getDimension(R.styleable.SubmarineView_submarine_circleSize, this.circleSize)
+    this.duration =
+      a.getInt(R.styleable.SubmarineView_submarine_duration, this.duration.toInt()).toLong()
+    this.circleSize =
+      a.getDimension(R.styleable.SubmarineView_submarine_circleSize, this.circleSize)
     this.circleImage = a.getDrawable(R.styleable.SubmarineView_submarine_circleDrawable)
-    this.circlePadding = a.getDimension(R.styleable.SubmarineView_submarine_circlePadding, this.circlePadding)
-    this.circleBorderSize = a.getDimension(R.styleable.SubmarineView_submarine_circleBorderSize, this.circleBorderSize)
-    this.circleBorderColor = a.getColor(R.styleable.SubmarineView_submarine_circleBorderColor, this.circleBorderColor)
+    this.circlePadding =
+      a.getDimension(R.styleable.SubmarineView_submarine_circlePadding, this.circlePadding)
+    this.circleBorderSize =
+      a.getDimension(R.styleable.SubmarineView_submarine_circleBorderSize, this.circleBorderSize)
+    this.circleBorderColor =
+      a.getColor(R.styleable.SubmarineView_submarine_circleBorderColor, this.circleBorderColor)
     this.radius = a.getDimension(R.styleable.SubmarineView_submarine_radius, this.radius)
     this.color = a.getColor(R.styleable.SubmarineView_submarine_color, this.color)
-    this.borderSize = a.getDimension(R.styleable.SubmarineView_submarine_borderSize, this.borderSize)
+    this.borderSize =
+      a.getDimension(R.styleable.SubmarineView_submarine_borderSize, this.borderSize)
     this.borderColor = a.getColor(R.styleable.SubmarineView_submarine_borderColor, this.borderColor)
-    this.expandSize = a.getDimension(R.styleable.SubmarineView_submarine_expandSize, this.expandSize.toFloat()).toInt()
+    this.expandSize =
+      a.getDimension(R.styleable.SubmarineView_submarine_expandSize, this.expandSize.toFloat())
+        .toInt()
   }
 
   override fun onFinishInflate() {
@@ -218,7 +232,8 @@ class SubmarineView : FrameLayout {
     if (circleImage != null) {
       circleIcon.scaleType = ImageView.ScaleType.CENTER_CROP
       circleIcon.setImageDrawable(circleImage)
-      circleIcon.setPadding(dp2Px(circlePadding), dp2Px(circlePadding), dp2Px(circlePadding), dp2Px(circlePadding))
+      circleIcon.setPadding(dp2Px(circlePadding), dp2Px(circlePadding), dp2Px(circlePadding),
+        dp2Px(circlePadding))
       circleIcon.borderWidth = circleBorderSize.toInt()
       circleIcon.borderColor = circleBorderColor
     }

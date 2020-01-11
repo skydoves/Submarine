@@ -16,10 +16,12 @@
 
 package com.skydoves.submarine
 
+import androidx.annotation.Px
+
 /** SubmarineItemWrapper is an wrapper class for including [SubmarineView]'s attributes with a [SubmarineItem]. */
 internal data class SubmarineItemWrapper(
   val submarineItem: SubmarineItem,
-  var itemSize: Int,
-  val parentWidth: Int,
+  @Px var itemSize: Int,
+  @Px val parentWidth: Int,
   var orientation: SubmarineOrientation
 )
