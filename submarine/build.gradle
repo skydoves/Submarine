@@ -20,7 +20,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$versions.androidxAppcompat"
     implementation "androidx.recyclerview:recyclerview:$versions.recyclerView"
     implementation "androidx.transition:transition:$versions.transition"
-    implementation "com.github.skydoves:baserecyclerviewadapter:$versions.baseAdapter"
     api "de.hdodenhof:circleimageview:$versions.circleimageview"
 }
 

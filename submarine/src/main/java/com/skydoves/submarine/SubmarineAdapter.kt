@@ -16,49 +16,83 @@
 
 package com.skydoves.submarine
 
+import android.content.res.ColorStateList
+import android.view.LayoutInflater
 import android.view.View
-import com.skydoves.baserecyclerviewadapter.BaseAdapter
-import com.skydoves.baserecyclerviewadapter.SectionRow
+import android.view.ViewGroup
+import android.widget.RelativeLayout
+import androidx.core.widget.ImageViewCompat
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_submarine.view.item_submarine_icon
 
-/** SubmarineAdapter is an implementation of [BaseAdapter] that has [SubmarineItem] as an section items. */
+/** SubmarineAdapter is an implementation of [RecyclerView.Adapter] that has [SubmarineItem] as an section items. */
 @Suppress("unused")
 class SubmarineAdapter(
   private val submarineItemClickListener: SubmarineItemClickListener? = null
-) : BaseAdapter() {
+) : RecyclerView.Adapter<SubmarineAdapter.SubmarineViewHolder>() {
 
-  init {
-    addSection(ArrayList<SubmarineItemWrapper>())
+  private val itemList: MutableList<SubmarineItemWrapper> = mutableListOf()
+
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubmarineViewHolder {
+    val inflater = LayoutInflater.from(parent.context)
+    val view = inflater.inflate(R.layout.item_submarine, parent, false)
+    return SubmarineViewHolder(view)
+  }
+
+  override fun onBindViewHolder(holder: SubmarineViewHolder, position: Int) {
+    val wrapper = itemList[position]
+    val submarineItem = wrapper.submarineItem
+    holder.itemView.run {
+      if (wrapper.orientation == SubmarineOrientation.HORIZONTAL) {
+        val params = RelativeLayout.LayoutParams(
+          wrapper.parentWidth / wrapper.itemSize, RelativeLayout.LayoutParams.MATCH_PARENT)
+        this.layoutParams = params
+      } else {
+        val params = RelativeLayout.LayoutParams(
+          RelativeLayout.LayoutParams.MATCH_PARENT, wrapper.parentWidth / wrapper.itemSize)
+        this.layoutParams = params
+      }
+
+      with(item_submarine_icon) {
+        setImageDrawable(submarineItem.icon)
+        submarineItem.iconForm?.let {
+          layoutParams.width = context.dp2Px(it.iconSize)
+          layoutParams.height = context.dp2Px(it.iconSize)
+          scaleType = it.iconScaleType
+          ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(it.iconColor))
+        }
+      }
+    }
   }
 
   internal fun addItem(submarineItem: SubmarineItemWrapper) {
-    addItemOnSection(0, submarineItem)
+    itemList.add(submarineItem)
     updateItemSize()
   }
 
   internal fun addItemList(submarineItemList: List<SubmarineItemWrapper>) {
-    addItemListOnSection(0, submarineItemList)
+    itemList.addAll(submarineItemList)
     updateItemSize()
   }
 
   internal fun removeItem(submarineItem: SubmarineItemWrapper) {
-    removeItemOnSection(0, submarineItem)
+    itemList.remove(submarineItem)
     updateItemSize()
   }
 
   internal fun clearAllItems() {
-    clearSection(0)
+    itemList.clear()
     notifyDataSetChanged()
   }
 
   private fun updateItemSize() {
-    for (item in sectionItems<SubmarineItemWrapper>(0)) {
-      item as SubmarineItemWrapper
-      item.itemSize = sectionItems<SubmarineItemWrapper>(0).size
+    for (item in itemList) {
+      item.itemSize = itemList.size
     }
     notifyDataSetChanged()
   }
 
-  override fun layout(sectionRow: SectionRow) = R.layout.item_submarine
+  override fun getItemCount() = itemList.size
 
-  override fun viewHolder(layout: Int, view: View) = SubmarineViewHolder(submarineItemClickListener, view)
+  class SubmarineViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }
