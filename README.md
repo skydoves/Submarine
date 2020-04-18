@@ -1,8 +1,9 @@
-# Submarine
+
+<h1 align="center">Submarine</h1></br>
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=16"><img alt="API" src="https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat"/></a>
-  <a href="https://travis-ci.org/skydoves/Submarine"><img alt="API" src="https://travis-ci.org/skydoves/Submarine.svg?branch=master"/></a>
+  <a href="https://github.com/skydoves/Submarine/actions"><img alt="Build Status" src="https://github.com/skydoves/Submarine/workflows/Android%20CI/badge.svg"/></a> 
   <a href="https://androidweekly.net/issues/issue-372"><img alt="Android Weekly" src="https://img.shields.io/badge/Android%20Weekly-%23372-orange"/></a>
   <a href="https://skydoves.github.io/libraries/submarine/javadoc/submarnie/com.skydoves.submarine/index.html"><img alt="Javadoc" src="https://img.shields.io/badge/Javadoc-Submarine-yellow.svg"/></a>
 </p>
