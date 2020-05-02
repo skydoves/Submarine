@@ -23,7 +23,7 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_submarine.view.item_submarine_icon
+import com.skydoves.submarine.databinding.ItemSubmarineBinding
 
 /** SubmarineAdapter is an implementation of [RecyclerView.Adapter] that has [SubmarineItem] as an section items. */
 @Suppress("unused")
@@ -32,11 +32,12 @@ class SubmarineAdapter(
 ) : RecyclerView.Adapter<SubmarineAdapter.SubmarineViewHolder>() {
 
   private val itemList: MutableList<SubmarineItemWrapper> = mutableListOf()
+  private lateinit var binding: ItemSubmarineBinding
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubmarineViewHolder {
     val inflater = LayoutInflater.from(parent.context)
-    val view = inflater.inflate(R.layout.item_submarine, parent, false)
-    return SubmarineViewHolder(view)
+    binding = ItemSubmarineBinding.inflate(inflater, parent, false)
+    return SubmarineViewHolder(binding.root)
   }
 
   override fun onBindViewHolder(holder: SubmarineViewHolder, position: Int) {
@@ -53,7 +54,7 @@ class SubmarineAdapter(
         this.layoutParams = params
       }
 
-      with(item_submarine_icon) {
+      with(binding.itemSubmarineIcon) {
         setImageDrawable(submarineItem.icon)
         submarineItem.iconForm?.let {
           layoutParams.width = context.dp2Px(it.iconSize)
