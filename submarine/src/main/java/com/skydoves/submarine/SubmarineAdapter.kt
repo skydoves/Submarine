@@ -18,7 +18,6 @@ package com.skydoves.submarine
 
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.core.widget.ImageViewCompat
@@ -32,17 +31,17 @@ class SubmarineAdapter(
 ) : RecyclerView.Adapter<SubmarineAdapter.SubmarineViewHolder>() {
 
   private val itemList: MutableList<SubmarineItemWrapper> = mutableListOf()
-  private lateinit var binding: ItemSubmarineBinding
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubmarineViewHolder {
     val inflater = LayoutInflater.from(parent.context)
-    binding = ItemSubmarineBinding.inflate(inflater, parent, false)
-    return SubmarineViewHolder(binding.root)
+    val binding = ItemSubmarineBinding.inflate(inflater, parent, false)
+    return SubmarineViewHolder(binding)
   }
 
   override fun onBindViewHolder(holder: SubmarineViewHolder, position: Int) {
     val wrapper = itemList[position]
     val submarineItem = wrapper.submarineItem
+    holder.bindItem(submarineItem)
     holder.itemView.run {
       if (wrapper.orientation == SubmarineOrientation.HORIZONTAL) {
         val params = RelativeLayout.LayoutParams(
@@ -53,15 +52,8 @@ class SubmarineAdapter(
           RelativeLayout.LayoutParams.MATCH_PARENT, wrapper.parentWidth / wrapper.itemSize)
         this.layoutParams = params
       }
-
-      with(binding.itemSubmarineIcon) {
-        setImageDrawable(submarineItem.icon)
-        submarineItem.iconForm?.let {
-          layoutParams.width = context.dp2Px(it.iconSize)
-          layoutParams.height = context.dp2Px(it.iconSize)
-          scaleType = it.iconScaleType
-          ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(it.iconColor))
-        }
+      setOnClickListener {
+        submarineItemClickListener?.onItemClick(position, submarineItem)
       }
     }
   }
@@ -95,5 +87,21 @@ class SubmarineAdapter(
 
   override fun getItemCount() = itemList.size
 
-  class SubmarineViewHolder(view: View) : RecyclerView.ViewHolder(view)
+  class SubmarineViewHolder(
+    private val binding: ItemSubmarineBinding
+  ) : RecyclerView.ViewHolder(
+    binding.root) {
+
+    fun bindItem(submarineItem: SubmarineItem) {
+      with(binding.itemSubmarineIcon) {
+        setImageDrawable(submarineItem.icon)
+        submarineItem.iconForm?.let {
+          layoutParams.width = context.dp2Px(it.iconSize)
+          layoutParams.height = context.dp2Px(it.iconSize)
+          scaleType = it.iconScaleType
+          ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(it.iconColor))
+        }
+      }
+    }
+  }
 }

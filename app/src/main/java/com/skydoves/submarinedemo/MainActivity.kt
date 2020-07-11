@@ -26,7 +26,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.submarine.SubmarineCircleClickListener
 import com.skydoves.submarine.SubmarineItem
 import com.skydoves.submarine.SubmarineItemClickListener
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.recyclerView
+import kotlinx.android.synthetic.main.activity_main.scrollView
+import kotlinx.android.synthetic.main.activity_main.submarineView
+import kotlinx.android.synthetic.main.activity_main.submarineView2
 
 class MainActivity : AppCompatActivity(),
   SubmarineItemClickListener,
@@ -50,24 +53,32 @@ class MainActivity : AppCompatActivity(),
     scrollView.setOnScrollChangeListener { _: NestedScrollView?, _: Int, scrollY: Int, _: Int, _: Int ->
       if (!submarineView2.isFloating) {
         if (scrollY == 0) submarineView.float()
-        else submarineView.dip()
+        else submarineView.retreat()
       } else if (submarineView.isFloating) {
-        submarineView.dip()
+        submarineView.retreat()
       } else if (submarineView2.isFloating) {
-        submarineView2.dip()
+        submarineView2.retreat()
       }
     }
 
-    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_edit)))
-    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_wallpaper)))
-    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_archive)))
-    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_share)))
+    submarineView.addSubmarineItem(
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_edit)))
+    submarineView.addSubmarineItem(
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_wallpaper)))
+    submarineView.addSubmarineItem(
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_archive)))
+    submarineView.addSubmarineItem(
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_share)))
 
     submarineView2.submarineItemClickListener = this
-    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_star)))
-    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_style)))
-    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_office)))
-    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_phone)))
+    submarineView2.addSubmarineItem(
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_star)))
+    submarineView2.addSubmarineItem(
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_style)))
+    submarineView2.addSubmarineItem(
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_office)))
+    submarineView2.addSubmarineItem(
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_phone)))
   }
 
   override fun onCircleClick() {
