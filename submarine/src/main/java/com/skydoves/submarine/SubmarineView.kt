@@ -25,6 +25,7 @@ import android.view.ViewTreeObserver
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.annotation.ColorInt
+import androidx.annotation.Dimension
 import androidx.annotation.Px
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,7 +41,6 @@ class SubmarineView : FrameLayout {
   var isNavigating = false
     private set
 
-  private lateinit var drawable: GradientDrawable
   private var orientation = SubmarineOrientation.HORIZONTAL
   private var circleAnchor = CircleAnchor.LEFT
   val circleIcon = CircleImageView(context)
@@ -218,24 +218,26 @@ class SubmarineView : FrameLayout {
 
   /** updates background and bordering. */
   private fun updateBackground() {
-    drawable = GradientDrawable()
-    drawable.cornerRadius = radius
-    drawable.setColor(color)
-    if (borderSize != 0f) {
-      drawable.setStroke(borderSize.toInt(), borderColor)
+    background = GradientDrawable().apply {
+      cornerRadius = radius
+      setColor(this@SubmarineView.color)
+      if (borderSize != 0f) {
+        setStroke(borderSize.toInt(), borderColor)
+      }
     }
-    background = drawable
   }
 
   /** updates the circle icon. */
   private fun updateCircleIcon() {
     if (circleImage != null) {
-      circleIcon.scaleType = ImageView.ScaleType.CENTER_CROP
-      circleIcon.setImageDrawable(circleImage)
-      circleIcon.setPadding(dp2Px(circlePadding), dp2Px(circlePadding), dp2Px(circlePadding),
-        dp2Px(circlePadding))
-      circleIcon.borderWidth = circleBorderSize.toInt()
-      circleIcon.borderColor = circleBorderColor
+      with(circleIcon) {
+        scaleType = ImageView.ScaleType.CENTER_CROP
+        setImageDrawable(circleImage)
+        setPadding(dp2Px(circlePadding), dp2Px(circlePadding), dp2Px(circlePadding),
+          dp2Px(circlePadding))
+        borderWidth = circleBorderSize.toInt()
+        borderColor = circleBorderColor
+      }
     }
   }
 
@@ -444,7 +446,9 @@ class SubmarineView : FrameLayout {
   private fun updateWidthParams(value: Int, radius: Float) {
     updateLayoutParams {
       width = value
-      drawable.cornerRadius = radius
+      if (background is GradientDrawable) {
+        (background as GradientDrawable).cornerRadius = radius
+      }
     }
   }
 
@@ -452,7 +456,9 @@ class SubmarineView : FrameLayout {
   private fun updateHeightParams(value: Int, radius: Float) {
     updateLayoutParams {
       height = value
-      drawable.cornerRadius = radius
+      if (background is GradientDrawable) {
+        (background as GradientDrawable).cornerRadius = radius
+      }
     }
   }
 
@@ -479,12 +485,12 @@ class SubmarineView : FrameLayout {
   }
 
   /** gets px size from the dp size. */
-  private fun dp2Px(size: Int): Int {
+  private fun dp2Px(@Dimension size: Int): Int {
     return context.dp2Px(size)
   }
 
   /** gets px size from the dp size. */
-  private fun dp2Px(size: Float): Int {
+  private fun dp2Px(@Dimension size: Float): Int {
     return context.dp2Px(size)
   }
 }

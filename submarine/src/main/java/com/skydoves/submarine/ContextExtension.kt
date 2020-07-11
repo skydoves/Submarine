@@ -19,6 +19,7 @@ package com.skydoves.submarine
 import android.content.Context
 import android.graphics.Point
 import android.view.WindowManager
+import androidx.annotation.Dimension
 
 /** gets display size as a point. */
 internal fun Context.displaySize(): Point {
@@ -30,13 +31,13 @@ internal fun Context.displaySize(): Point {
 }
 
 /** dp size to px size. */
-internal fun Context.dp2Px(dp: Int): Int {
+internal fun Context.dp2Px(@Dimension dp: Int): Int {
   val scale = resources.displayMetrics.density
   return (dp * scale).toInt()
 }
 
 /** dp size to px size. */
-internal fun Context.dp2Px(dp: Float): Int {
+internal fun Context.dp2Px(@Dimension dp: Float): Int {
   val scale = resources.displayMetrics.density
   return (dp * scale).toInt()
 }

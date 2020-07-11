@@ -46,8 +46,10 @@ class IconForm(builder: Builder) {
   class Builder(context: Context) {
     @JvmField @Px
     var iconSize = 40
+
     @JvmField @ColorInt
     var iconColor = ContextCompat.getColor(context, R.color.submarine_white)
+
     @JvmField
     var iconScaleType = ImageView.ScaleType.FIT_XY
 
