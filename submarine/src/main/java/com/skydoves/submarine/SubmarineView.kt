@@ -151,19 +151,19 @@ class SubmarineView : FrameLayout {
   private fun setTypeArray(a: TypedArray) {
     when (a.getInt(R.styleable.SubmarineView_submarine_orientation,
       SubmarineOrientation.HORIZONTAL.value)) {
-      0 -> this.orientation = SubmarineOrientation.HORIZONTAL
-      1 -> this.orientation = SubmarineOrientation.VERTICAL
+      SubmarineOrientation.HORIZONTAL.value -> this.orientation = SubmarineOrientation.HORIZONTAL
+      SubmarineOrientation.VERTICAL.value -> this.orientation = SubmarineOrientation.VERTICAL
     }
     when (a.getInt(R.styleable.SubmarineView_submarine_circleAnchor, CircleAnchor.LEFT.value)) {
-      0 -> this.circleAnchor = CircleAnchor.LEFT
-      1 -> this.circleAnchor = CircleAnchor.RIGHT
-      2 -> this.circleAnchor = CircleAnchor.TOP
-      3 -> this.circleAnchor = CircleAnchor.BOTTOM
+      CircleAnchor.LEFT.value -> this.circleAnchor = CircleAnchor.LEFT
+      CircleAnchor.RIGHT.value -> this.circleAnchor = CircleAnchor.RIGHT
+      CircleAnchor.TOP.value -> this.circleAnchor = CircleAnchor.TOP
+      CircleAnchor.BOTTOM.value -> this.circleAnchor = CircleAnchor.BOTTOM
     }
     when (a.getInt(R.styleable.SubmarineView_submarine_animation, SubmarineAnimation.NONE.value)) {
-      0 -> this.submarineAnimation = SubmarineAnimation.NONE
-      1 -> this.submarineAnimation = SubmarineAnimation.FADE
-      2 -> this.submarineAnimation = SubmarineAnimation.SCALE
+      SubmarineAnimation.NONE.value -> this.submarineAnimation = SubmarineAnimation.NONE
+      SubmarineAnimation.FADE.value -> this.submarineAnimation = SubmarineAnimation.FADE
+      SubmarineAnimation.SCALE.value -> this.submarineAnimation = SubmarineAnimation.SCALE
     }
     this.autoNavigate =
       a.getBoolean(R.styleable.SubmarineView_submarine_autoNavigate, this.autoNavigate)

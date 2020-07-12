@@ -19,6 +19,7 @@ package com.skydoves.submarine
 import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -43,14 +44,12 @@ class SubmarineAdapter(
     val submarineItem = wrapper.submarineItem
     holder.bindItem(submarineItem)
     holder.itemView.run {
-      if (wrapper.orientation == SubmarineOrientation.HORIZONTAL) {
-        val params = RelativeLayout.LayoutParams(
+      layoutParams = if (wrapper.orientation == SubmarineOrientation.HORIZONTAL) {
+        FrameLayout.LayoutParams(
           wrapper.parentWidth / wrapper.itemSize, RelativeLayout.LayoutParams.MATCH_PARENT)
-        this.layoutParams = params
       } else {
-        val params = RelativeLayout.LayoutParams(
+        FrameLayout.LayoutParams(
           RelativeLayout.LayoutParams.MATCH_PARENT, wrapper.parentWidth / wrapper.itemSize)
-        this.layoutParams = params
       }
       setOnClickListener {
         submarineItemClickListener?.onItemClick(position, submarineItem)
@@ -59,38 +58,35 @@ class SubmarineAdapter(
   }
 
   internal fun addItem(submarineItem: SubmarineItemWrapper) {
-    itemList.add(submarineItem)
+    this.itemList.add(submarineItem)
     updateItemSize()
   }
 
   internal fun addItemList(submarineItemList: List<SubmarineItemWrapper>) {
-    itemList.addAll(submarineItemList)
+    this.itemList.addAll(submarineItemList)
     updateItemSize()
   }
 
   internal fun removeItem(submarineItem: SubmarineItemWrapper) {
-    itemList.remove(submarineItem)
+    this.itemList.remove(submarineItem)
     updateItemSize()
   }
 
   internal fun clearAllItems() {
-    itemList.clear()
+    this.itemList.clear()
     notifyDataSetChanged()
   }
 
   private fun updateItemSize() {
-    for (item in itemList) {
-      item.itemSize = itemList.size
-    }
+    this.itemList.forEach { it.itemSize = itemList.size }
     notifyDataSetChanged()
   }
 
-  override fun getItemCount() = itemList.size
+  override fun getItemCount() = this.itemList.size
 
   class SubmarineViewHolder(
     private val binding: ItemSubmarineBinding
-  ) : RecyclerView.ViewHolder(
-    binding.root) {
+  ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bindItem(submarineItem: SubmarineItem) {
       with(binding.itemSubmarineIcon) {
