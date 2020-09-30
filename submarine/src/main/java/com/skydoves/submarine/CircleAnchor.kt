@@ -17,7 +17,6 @@
 package com.skydoves.submarine
 
 /** CircleAnchor decides that the circle where to moves. */
-@Suppress("unused")
 enum class CircleAnchor(val value: Int) {
   LEFT(0),
   RIGHT(1),

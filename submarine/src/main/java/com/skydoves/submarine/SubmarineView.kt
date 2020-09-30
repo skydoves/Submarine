@@ -124,8 +124,10 @@ class SubmarineView : FrameLayout {
     getAttrs(attributeSet)
   }
 
-  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(context,
-    attributeSet, defStyle) {
+  constructor(context: Context, attributeSet: AttributeSet, defStyle: Int) : super(
+    context,
+    attributeSet, defStyle
+  ) {
     getAttrs(attributeSet, defStyle)
   }
 
@@ -149,8 +151,12 @@ class SubmarineView : FrameLayout {
   }
 
   private fun setTypeArray(a: TypedArray) {
-    when (a.getInt(R.styleable.SubmarineView_submarine_orientation,
-      SubmarineOrientation.HORIZONTAL.value)) {
+    when (
+      a.getInt(
+        R.styleable.SubmarineView_submarine_orientation,
+        SubmarineOrientation.HORIZONTAL.value
+      )
+    ) {
       SubmarineOrientation.HORIZONTAL.value -> this.orientation = SubmarineOrientation.HORIZONTAL
       SubmarineOrientation.VERTICAL.value -> this.orientation = SubmarineOrientation.VERTICAL
     }
@@ -233,8 +239,10 @@ class SubmarineView : FrameLayout {
       with(circleIcon) {
         scaleType = ImageView.ScaleType.CENTER_CROP
         setImageDrawable(circleImage)
-        setPadding(dp2Px(circlePadding), dp2Px(circlePadding), dp2Px(circlePadding),
-          dp2Px(circlePadding))
+        setPadding(
+          dp2Px(circlePadding), dp2Px(circlePadding), dp2Px(circlePadding),
+          dp2Px(circlePadding)
+        )
         borderWidth = circleBorderSize.toInt()
         borderColor = circleBorderColor
       }

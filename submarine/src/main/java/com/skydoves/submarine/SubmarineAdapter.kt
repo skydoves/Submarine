@@ -46,10 +46,12 @@ class SubmarineAdapter(
     holder.itemView.run {
       layoutParams = if (wrapper.orientation == SubmarineOrientation.HORIZONTAL) {
         FrameLayout.LayoutParams(
-          wrapper.parentWidth / wrapper.itemSize, RelativeLayout.LayoutParams.MATCH_PARENT)
+          wrapper.parentWidth / wrapper.itemSize, RelativeLayout.LayoutParams.MATCH_PARENT
+        )
       } else {
         FrameLayout.LayoutParams(
-          RelativeLayout.LayoutParams.MATCH_PARENT, wrapper.parentWidth / wrapper.itemSize)
+          RelativeLayout.LayoutParams.MATCH_PARENT, wrapper.parentWidth / wrapper.itemSize
+        )
       }
       setOnClickListener {
         submarineItemClickListener?.onItemClick(position, submarineItem)

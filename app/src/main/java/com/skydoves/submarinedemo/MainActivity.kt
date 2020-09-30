@@ -31,7 +31,8 @@ import kotlinx.android.synthetic.main.activity_main.scrollView
 import kotlinx.android.synthetic.main.activity_main.submarineView
 import kotlinx.android.synthetic.main.activity_main.submarineView2
 
-class MainActivity : AppCompatActivity(),
+class MainActivity :
+  AppCompatActivity(),
   SubmarineItemClickListener,
   SubmarineCircleClickListener,
   SampleViewHolder.Delegate {
@@ -62,23 +63,31 @@ class MainActivity : AppCompatActivity(),
     }
 
     submarineView.addSubmarineItem(
-      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_edit)))
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_edit))
+    )
     submarineView.addSubmarineItem(
-      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_wallpaper)))
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_wallpaper))
+    )
     submarineView.addSubmarineItem(
-      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_archive)))
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_archive))
+    )
     submarineView.addSubmarineItem(
-      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_share)))
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_share))
+    )
 
     submarineView2.submarineItemClickListener = this
     submarineView2.addSubmarineItem(
-      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_star)))
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_star))
+    )
     submarineView2.addSubmarineItem(
-      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_style)))
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_style))
+    )
     submarineView2.addSubmarineItem(
-      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_office)))
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_office))
+    )
     submarineView2.addSubmarineItem(
-      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_phone)))
+      SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_phone))
+    )
   }
 
   override fun onCircleClick() {
