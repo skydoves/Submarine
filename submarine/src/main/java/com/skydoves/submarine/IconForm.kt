@@ -19,10 +19,10 @@
 package com.skydoves.submarine
 
 import android.content.Context
+import android.graphics.Color
 import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.annotation.Px
-import androidx.core.content.ContextCompat
 
 @DslMarker
 internal annotation class IconFormMarker
@@ -49,7 +49,7 @@ class IconForm(builder: Builder) {
     var iconSize = 40
 
     @JvmField @ColorInt
-    var iconColor = ContextCompat.getColor(context, R.color.submarine_white)
+    var iconColor = Color.parseColor("#f4f4f4")
 
     @JvmField
     var iconScaleType = ImageView.ScaleType.FIT_XY

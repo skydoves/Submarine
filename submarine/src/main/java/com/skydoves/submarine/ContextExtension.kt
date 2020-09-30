@@ -18,6 +18,8 @@ package com.skydoves.submarine
 
 import android.content.Context
 import android.graphics.Point
+import android.os.Build
+import android.util.TypedValue
 import androidx.annotation.Dimension
 
 /** gets display size as a point. */
@@ -38,4 +40,16 @@ internal fun Context.dp2Px(@Dimension dp: Int): Int {
 internal fun Context.dp2Px(@Dimension dp: Float): Int {
   val scale = resources.displayMetrics.density
   return (dp * scale).toInt()
+}
+
+/** gets an accent color. */
+internal fun Context.accentColor(): Int {
+  val colorAttr: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+    R.attr.colorAccent
+  } else {
+    resources.getIdentifier("colorAccent", "attr", packageName)
+  }
+  val outValue = TypedValue()
+  theme.resolveAttribute(colorAttr, outValue, true)
+  return outValue.data
 }

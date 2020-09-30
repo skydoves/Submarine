@@ -26,7 +26,6 @@ import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
 import androidx.annotation.Px
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.hdodenhof.circleimageview.CircleImageView
@@ -68,7 +67,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  @ColorInt var circleBorderColor = ContextCompat.getColor(context, R.color.colorPrimary)
+  @ColorInt var circleBorderColor = context.accentColor()
     set(value) {
       field = value
       updateSubmarine()
@@ -78,7 +77,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  @ColorInt var color = ContextCompat.getColor(context, R.color.colorPrimary)
+  @ColorInt var color = context.accentColor()
     set(value) {
       field = value
       updateSubmarine()
@@ -88,7 +87,7 @@ class SubmarineView : FrameLayout {
       field = value
       updateSubmarine()
     }
-  @ColorInt var borderColor = ContextCompat.getColor(context, R.color.colorPrimary)
+  @ColorInt var borderColor = context.accentColor()
     set(value) {
       field = value
       updateSubmarine()

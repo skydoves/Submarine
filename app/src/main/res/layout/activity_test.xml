@@ -127,7 +127,7 @@
       app:submarine_circleDrawable="@drawable/palette"
       app:submarine_circlePadding="2dp"
       app:submarine_circleSize="22dp"
-      app:submarine_color="@color/submarine_white"
+      app:submarine_color="@color/white87"
       app:submarine_duration="300"
       app:submarine_orientation="horizontal" />
   </LinearLayout>
