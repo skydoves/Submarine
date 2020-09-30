@@ -33,8 +33,7 @@ internal fun ViewGroup.beginDelayedTransition(duration: Long) {
 /** updates [FrameLayout] params. */
 internal fun ViewGroup.updateLayoutParams(block: ViewGroup.LayoutParams.() -> Unit) {
   layoutParams?.let {
-    val params: ViewGroup.LayoutParams = (layoutParams as ViewGroup.LayoutParams).apply { block(this) }
-    layoutParams = params
+    layoutParams = it.apply { block(this) }
   }
 }
 

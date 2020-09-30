@@ -17,7 +17,6 @@
 package com.skydoves.submarine
 
 /** SubmarineOrientation is the orientation attribute for where to spread. */
-@Suppress("unused")
 enum class SubmarineOrientation(val value: Int) {
   HORIZONTAL(0),
   VERTICAL(1)

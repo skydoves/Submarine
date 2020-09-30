@@ -20,7 +20,6 @@ package com.skydoves.submarine
  * SubmarineAnimation is an enumeration class for
  * appearing and disappearing [SubmarineView] with animations.
  */
-@Suppress("unused")
 enum class SubmarineAnimation(val value: Int) {
   NONE(0),
   FADE(1),
