@@ -17,7 +17,7 @@
 package com.skydoves.submarine
 
 /** SubmarineItemClickListener is an interface for listening to the items click. */
-interface SubmarineItemClickListener {
+fun interface SubmarineItemClickListener {
   /** called when the icon is clicked. */
   fun onItemClick(position: Int, submarineItem: SubmarineItem)
 }

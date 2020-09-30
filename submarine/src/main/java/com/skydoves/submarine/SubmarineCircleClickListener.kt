@@ -17,7 +17,7 @@
 package com.skydoves.submarine
 
 /** SubmarineCircleClickListener is an interface for listening to the circle icon's click. */
-interface SubmarineCircleClickListener {
+fun interface SubmarineCircleClickListener {
   /** called when the circle icon is clicked. */
   fun onCircleClick()
 }

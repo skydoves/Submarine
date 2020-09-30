@@ -21,7 +21,6 @@ import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
-import android.view.ViewTreeObserver
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.annotation.ColorInt
@@ -211,15 +210,12 @@ class SubmarineView : FrameLayout {
 
   /** updates the submarine view's param sizes. */
   private fun updateSize() {
-    this.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-      override fun onGlobalLayout() {
-        viewTreeObserver.removeOnGlobalLayoutListener(this)
-        updateLayoutParams {
-          width = dp2Px(circleSize)
-          height = dp2Px(circleSize)
-        }
+    post {
+      updateLayoutParams {
+        width = dp2Px(circleSize)
+        height = dp2Px(circleSize)
       }
-    })
+    }
   }
 
   /** updates background and bordering. */
@@ -448,6 +444,18 @@ class SubmarineView : FrameLayout {
   /** clears all of the [SubmarineItem] on the navigation adapter. */
   fun clearAllSubmarineItems() {
     adapter.clearAllItems()
+  }
+
+  /** sets a [SubmarineCircleClickListener] to the [SubmarineView] using a lambda. */
+  @JvmSynthetic
+  fun setSubmarineCircleClickListener(block: () -> Unit) {
+    this.submarineCircleClickListener = SubmarineCircleClickListener(block)
+  }
+
+  /** sets a [SubmarineItemClickListener] to the [SubmarineView] using a lambda. */
+  @JvmSynthetic
+  fun setSubmarineItemClickListener(block: (Int, SubmarineItem) -> Unit) {
+    this.submarineItemClickListener = SubmarineItemClickListener(block)
   }
 
   /** updates layout width params. */
