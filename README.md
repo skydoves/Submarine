@@ -20,6 +20,7 @@ Fully customizable floating navigation view for listing items dynamically on And
 
 ## Including in your project 
 [![Download](https://api.bintray.com/packages/devmagician/maven/submarine/images/download.svg)](https://bintray.com/devmagician/maven/submarine/_latestVersion)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/submarine.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22submarine%22)
 [![Jtpack](https://jitpack.io/v/skydoves/Submarine.svg)](https://jitpack.io/#skydoves/Submarine)
 ### Gradle 
 Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
