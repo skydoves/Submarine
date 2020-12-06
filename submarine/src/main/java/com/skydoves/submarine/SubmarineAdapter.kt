@@ -34,17 +34,22 @@ class SubmarineAdapter(
   private val itemList: MutableList<SubmarineItemWrapper> = mutableListOf()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubmarineViewHolder {
-    val inflater = LayoutInflater.from(parent.context)
-    val binding = ItemSubmarineBinding.inflate(inflater, parent, false)
-    return SubmarineViewHolder(binding)
+    val binding = ItemSubmarineBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    return SubmarineViewHolder(binding).apply {
+      binding.root.setOnClickListener {
+        val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+          ?: return@setOnClickListener
+        submarineItemClickListener?.onItemClick(position, itemList[position].submarineItem)
+      }
+    }
   }
 
   override fun onBindViewHolder(holder: SubmarineViewHolder, position: Int) {
     val wrapper = itemList[position]
     val submarineItem = wrapper.submarineItem
     holder.bindItem(submarineItem)
-    holder.itemView.run {
-      layoutParams = if (wrapper.orientation == SubmarineOrientation.HORIZONTAL) {
+    holder.binding.run {
+      root.layoutParams = if (wrapper.orientation == SubmarineOrientation.HORIZONTAL) {
         FrameLayout.LayoutParams(
           wrapper.parentWidth / wrapper.itemSize, RelativeLayout.LayoutParams.MATCH_PARENT
         )
@@ -52,9 +57,6 @@ class SubmarineAdapter(
         FrameLayout.LayoutParams(
           RelativeLayout.LayoutParams.MATCH_PARENT, wrapper.parentWidth / wrapper.itemSize
         )
-      }
-      setOnClickListener {
-        submarineItemClickListener?.onItemClick(position, submarineItem)
       }
     }
   }
@@ -87,7 +89,7 @@ class SubmarineAdapter(
   override fun getItemCount() = this.itemList.size
 
   class SubmarineViewHolder(
-    private val binding: ItemSubmarineBinding
+    val binding: ItemSubmarineBinding
   ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bindItem(submarineItem: SubmarineItem) {

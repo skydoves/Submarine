@@ -29,7 +29,7 @@ internal annotation class IconFormMarker
 /** creates an instance of [IconForm] from [IconForm.Builder] using kotlin dsl. */
 @JvmSynthetic
 @IconFormMarker
-fun iconForm(block: IconForm.Builder.() -> Unit): IconForm =
+inline fun iconForm(crossinline block: IconForm.Builder.() -> Unit): IconForm =
   IconForm.Builder().apply(block).build()
 
 /**
@@ -45,12 +45,15 @@ class IconForm(builder: Builder) {
   /** Builder class for[IconForm]. */
   class Builder {
     @JvmField @Px
+    @set:JvmSynthetic
     var iconSize = 40
 
     @JvmField @ColorInt
+    @set:JvmSynthetic
     var iconColor = Color.parseColor("#f4f4f4")
 
     @JvmField
+    @set:JvmSynthetic
     var iconScaleType = ImageView.ScaleType.FIT_XY
 
     fun setIconSize(@Px value: Int): Builder = apply { this.iconSize = value }
