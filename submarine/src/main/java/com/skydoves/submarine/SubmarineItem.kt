@@ -19,7 +19,7 @@ package com.skydoves.submarine
 import android.graphics.drawable.Drawable
 
 /** SubmarineItem is an data class for composing [SubmarineView]'s navigation recyclerView item. */
-data class SubmarineItem(
+data class SubmarineItem @JvmOverloads constructor(
   val icon: Drawable? = null,
   val iconForm: IconForm? = null
 )
