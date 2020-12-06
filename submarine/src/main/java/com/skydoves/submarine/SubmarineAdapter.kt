@@ -23,7 +23,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.skydoves.submarine.databinding.ItemSubmarineBinding
+import com.skydoves.submarine.databinding.ItemSubmarineLibrarySkydovesBinding
 
 /** SubmarineAdapter is an implementation of [RecyclerView.Adapter] that has [SubmarineItem] as an section items. */
 @Suppress("unused")
@@ -34,7 +34,11 @@ class SubmarineAdapter(
   private val itemList: MutableList<SubmarineItemWrapper> = mutableListOf()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubmarineViewHolder {
-    val binding = ItemSubmarineBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    val binding =
+      ItemSubmarineLibrarySkydovesBinding.inflate(
+        LayoutInflater.from(parent.context), parent,
+        false
+      )
     return SubmarineViewHolder(binding).apply {
       binding.root.setOnClickListener {
         val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
@@ -88,9 +92,9 @@ class SubmarineAdapter(
 
   override fun getItemCount() = this.itemList.size
 
-  class SubmarineViewHolder(
-    val binding: ItemSubmarineBinding
-  ) : RecyclerView.ViewHolder(binding.root) {
+  class SubmarineViewHolder(val binding: ItemSubmarineLibrarySkydovesBinding) : RecyclerView.ViewHolder(
+    binding.root
+  ) {
 
     fun bindItem(submarineItem: SubmarineItem) {
       with(binding.itemSubmarineIcon) {
