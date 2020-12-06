@@ -19,27 +19,25 @@ package com.skydoves.submarinedemo
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.item_sample.view.sample0_avatar
-import kotlinx.android.synthetic.main.item_sample.view.sample0_content
-import kotlinx.android.synthetic.main.item_sample.view.sample0_name
+import com.skydoves.submarinedemo.databinding.ItemSampleBinding
 
 @Suppress("PrivatePropertyName")
-class SampleAdapter(private val delegate: SampleViewHolder.Delegate) : RecyclerView.Adapter<SampleViewHolder>() {
+class SampleAdapter(private val delegate: SampleViewHolder.Delegate) : RecyclerView.Adapter<SampleAdapter.SampleViewHolder>() {
 
   private val sampleItems = mutableListOf<SampleItem>()
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SampleViewHolder {
-    val inflater = LayoutInflater.from(parent.context)
-    return SampleViewHolder(inflater.inflate(R.layout.item_sample, parent, false))
+    val binding = ItemSampleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    return SampleViewHolder(binding)
   }
 
   override fun onBindViewHolder(holder: SampleViewHolder, position: Int) {
     val sampleItem = this.sampleItems[position]
-    holder.itemView.run {
-      sample0_avatar.setImageDrawable(sampleItem.image)
-      sample0_name.text = sampleItem.name
-      sample0_content.text = sampleItem.content
-      setOnClickListener { delegate.onItemClick(sampleItem) }
+    holder.binding.run {
+      sample0Avatar.setImageDrawable(sampleItem.image)
+      sample0Name.text = sampleItem.name
+      sample0Content.text = sampleItem.content
+      root.setOnClickListener { delegate.onItemClick(sampleItem) }
     }
   }
 
@@ -49,4 +47,11 @@ class SampleAdapter(private val delegate: SampleViewHolder.Delegate) : RecyclerV
   }
 
   override fun getItemCount() = this.sampleItems.size
+
+  class SampleViewHolder(val binding: ItemSampleBinding) : RecyclerView.ViewHolder(binding.root) {
+
+    interface Delegate {
+      fun onItemClick(sampleItem: SampleItem)
+    }
+  }
 }

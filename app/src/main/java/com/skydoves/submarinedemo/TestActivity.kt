@@ -21,100 +21,167 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.skydoves.submarine.SubmarineItem
 import com.skydoves.submarine.iconForm
-import kotlinx.android.synthetic.main.activity_test.*
+import com.skydoves.submarinedemo.databinding.ActivityTestBinding
 
 class TestActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_test)
 
-    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_edit)))
-    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_wallpaper)))
-    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_archive)))
-    submarineView.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_share)))
+    val binding = ActivityTestBinding.inflate(layoutInflater)
+    setContentView(binding.root)
 
-    submarineView2.circleIcon.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.sample2))
-    val star = iconForm(this) {
-      iconColor = ContextCompat.getColor(this@TestActivity, R.color.colorPrimary)
-      iconSize = 35
-    }
-    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_star), star))
-    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_style)))
-    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_office)))
-    submarineView2.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_phone)))
+    with(binding) {
+      submarineView.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_edit))
+      )
+      submarineView.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_wallpaper))
+      )
+      submarineView.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_archive))
+      )
+      submarineView.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_share))
+      )
 
-    val blueForm = iconForm(this) {
-      iconColor = ContextCompat.getColor(this@TestActivity, R.color.blue01)
-      iconSize = 35
-    }
-    submarineView3.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_star), blueForm))
-    submarineView3.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_style), blueForm))
-    submarineView3.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_office), blueForm))
-    submarineView3.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_phone), blueForm))
-    submarineView3.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_wallpaper), blueForm))
+      submarineView2.circleIcon.setImageDrawable(
+        ContextCompat.getDrawable(this@TestActivity, R.drawable.sample2)
+      )
+      val star = iconForm {
+        iconColor = ContextCompat.getColor(this@TestActivity, R.color.colorPrimary)
+        iconSize = 35
+      }
+      submarineView2.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_star), star)
+      )
+      submarineView2.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_style))
+      )
+      submarineView2.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_office))
+      )
+      submarineView2.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_phone))
+      )
 
-    submarineView4.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_star)))
-    submarineView4.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_style)))
-    submarineView4.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_office)))
-    submarineView4.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.ic_phone)))
+      val blueForm = iconForm {
+        iconColor = ContextCompat.getColor(this@TestActivity, R.color.blue01)
+        iconSize = 35
+      }
+      submarineView3.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_star), blueForm)
+      )
+      submarineView3.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_style), blueForm)
+      )
+      submarineView3.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_office), blueForm)
+      )
+      submarineView3.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_phone), blueForm)
+      )
+      submarineView3.addSubmarineItem(
+        SubmarineItem(
+          ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_wallpaper),
+          blueForm
+        )
+      )
 
-    val red = iconForm(this) {
-      iconColor = ContextCompat.getColor(this@TestActivity, R.color.red)
-      iconSize = 40
-    }
-    val amber = iconForm(this) {
-      iconColor = ContextCompat.getColor(this@TestActivity, R.color.amber)
-      iconSize = 40
-    }
-    val yellow = iconForm(this) {
-      iconColor = ContextCompat.getColor(this@TestActivity, R.color.yellow)
-      iconSize = 40
-    }
-    val green = iconForm(this) {
-      iconColor = ContextCompat.getColor(this@TestActivity, R.color.green)
-      iconSize = 40
-    }
-    val blue = iconForm(this) {
-      iconColor = ContextCompat.getColor(this@TestActivity, R.color.blue01)
-      iconSize = 40
-    }
-    val purple = iconForm(this) {
-      iconColor = ContextCompat.getColor(this@TestActivity, R.color.blue02)
-      iconSize = 40
-    }
+      submarineView4.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_star))
+      )
+      submarineView4.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_style))
+      )
+      submarineView4.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_office))
+      )
+      submarineView4.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.ic_phone))
+      )
 
-    submarineView5.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), red))
-    submarineView5.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), amber))
-    submarineView5.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), yellow))
-    submarineView5.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), green))
-    submarineView5.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), blue))
-    submarineView5.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), purple))
+      val red = iconForm {
+        iconColor = ContextCompat.getColor(this@TestActivity, R.color.red)
+        iconSize = 40
+      }
+      val amber = iconForm {
+        iconColor = ContextCompat.getColor(this@TestActivity, R.color.amber)
+        iconSize = 40
+      }
+      val yellow = iconForm {
+        iconColor = ContextCompat.getColor(this@TestActivity, R.color.yellow)
+        iconSize = 40
+      }
+      val green = iconForm {
+        iconColor = ContextCompat.getColor(this@TestActivity, R.color.green)
+        iconSize = 40
+      }
+      val blue = iconForm {
+        iconColor = ContextCompat.getColor(this@TestActivity, R.color.blue01)
+        iconSize = 40
+      }
+      val purple = iconForm {
+        iconColor = ContextCompat.getColor(this@TestActivity, R.color.blue02)
+        iconSize = 40
+      }
 
-    submarineView6.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), red))
-    submarineView6.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), amber))
-    submarineView6.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), yellow))
-    submarineView6.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), green))
-    submarineView6.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), blue))
-    submarineView6.addSubmarineItem(SubmarineItem(ContextCompat.getDrawable(this, R.drawable.circle), purple))
+      submarineView5.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), red)
+      )
+      submarineView5.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), amber)
+      )
+      submarineView5.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), yellow)
+      )
+      submarineView5.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), green)
+      )
+      submarineView5.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), blue)
+      )
+      submarineView5.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), purple)
+      )
 
-    button.setOnClickListener {
-      if (!submarineView.isFloating) {
-        submarineView.float()
-        submarineView2.float()
-        submarineView3.float()
-        submarineView4.float()
-        submarineView5.float()
-        submarineView6.float()
-        button.text = "dip"
-      } else {
-        submarineView.dip()
-        submarineView2.dip()
-        submarineView3.dip()
-        submarineView4.dip()
-        submarineView5.dip()
-        submarineView6.dip()
-        button.text = "float"
+      submarineView6.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), red)
+      )
+      submarineView6.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), amber)
+      )
+      submarineView6.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), yellow)
+      )
+      submarineView6.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), green)
+      )
+      submarineView6.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), blue)
+      )
+      submarineView6.addSubmarineItem(
+        SubmarineItem(ContextCompat.getDrawable(this@TestActivity, R.drawable.circle), purple)
+      )
+
+      button.setOnClickListener {
+        if (!submarineView.isFloating) {
+          submarineView.float()
+          submarineView2.float()
+          submarineView3.float()
+          submarineView4.float()
+          submarineView5.float()
+          submarineView6.float()
+          button.text = "dip"
+        } else {
+          submarineView.dip()
+          submarineView2.dip()
+          submarineView3.dip()
+          submarineView4.dip()
+          submarineView5.dip()
+          submarineView6.dip()
+          button.text = "float"
+        }
       }
     }
   }

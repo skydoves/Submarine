@@ -18,7 +18,6 @@
 
 package com.skydoves.submarine
 
-import android.content.Context
 import android.graphics.Color
 import android.widget.ImageView
 import androidx.annotation.ColorInt
@@ -30,8 +29,8 @@ internal annotation class IconFormMarker
 /** creates an instance of [IconForm] from [IconForm.Builder] using kotlin dsl. */
 @JvmSynthetic
 @IconFormMarker
-fun iconForm(context: Context, block: IconForm.Builder.() -> Unit): IconForm =
-  IconForm.Builder(context).apply(block).build()
+fun iconForm(block: IconForm.Builder.() -> Unit): IconForm =
+  IconForm.Builder().apply(block).build()
 
 /**
  * IconForm is an attribute class what has some attributes about ImageView
@@ -44,7 +43,7 @@ class IconForm(builder: Builder) {
   val iconScaleType = builder.iconScaleType
 
   /** Builder class for[IconForm]. */
-  class Builder(context: Context) {
+  class Builder {
     @JvmField @Px
     var iconSize = 40
 
