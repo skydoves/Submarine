@@ -312,7 +312,7 @@ class SubmarineView : FrameLayout {
   }
 
   /** floats the circle icon on the layout. */
-  fun float() {
+  fun floats() {
     if (!isFloating) {
       isFloating = true
       visible(true)
@@ -332,7 +332,7 @@ class SubmarineView : FrameLayout {
   }
 
   /** spreads the navigation views and listing items. */
-  fun navigate() {
+  fun navigates() {
     if (!isNavigating) {
       isNavigating = true
       recyclerView.visible(true)
@@ -352,7 +352,7 @@ class SubmarineView : FrameLayout {
   }
 
   /** folds the navigation views and un-lists items. */
-  fun retreat() {
+  fun retreats() {
     if (isNavigating) {
       isNavigating = false
       beginDelayedTransition(duration)
@@ -380,10 +380,10 @@ class SubmarineView : FrameLayout {
   }
 
   /** dips the circle icon on the layer. */
-  fun dip() {
+  fun dips() {
     if (isFloating) {
       if (isNavigating && autoDip) {
-        retreat()
+        retreats()
       } else if (!isNavigating) {
         isFloating = false
 
@@ -412,14 +412,14 @@ class SubmarineView : FrameLayout {
   /** navigates if the [autoNavigate] attribute is ture. */
   private fun autoNavigate() {
     if (autoNavigate) {
-      navigate()
+      navigates()
     }
   }
 
   /** dips if the [autoDip] attribute is true. */
   private fun autoDip() {
     if (autoDip) {
-      dip()
+      dips()
     }
   }
 

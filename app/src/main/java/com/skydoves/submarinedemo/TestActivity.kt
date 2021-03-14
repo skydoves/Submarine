@@ -166,20 +166,20 @@ class TestActivity : AppCompatActivity() {
 
       button.setOnClickListener {
         if (!submarineView.isFloating) {
-          submarineView.float()
-          submarineView2.float()
-          submarineView3.float()
-          submarineView4.float()
-          submarineView5.float()
-          submarineView6.float()
+          submarineView.floats()
+          submarineView2.floats()
+          submarineView3.floats()
+          submarineView4.floats()
+          submarineView5.floats()
+          submarineView6.floats()
           button.text = "dip"
         } else {
-          submarineView.dip()
-          submarineView2.dip()
-          submarineView3.dip()
-          submarineView4.dip()
-          submarineView5.dip()
-          submarineView6.dip()
+          submarineView.dips()
+          submarineView2.dips()
+          submarineView3.dips()
+          submarineView4.dips()
+          submarineView5.dips()
+          submarineView6.dips()
           button.text = "float"
         }
       }

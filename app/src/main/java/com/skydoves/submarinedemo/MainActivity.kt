@@ -50,16 +50,16 @@ class MainActivity :
 
       submarineView.submarineItemClickListener = this@MainActivity
       submarineView.submarineCircleClickListener = this@MainActivity
-      submarineView.float()
+      submarineView.floats()
 
       scrollView.setOnScrollChangeListener { _: NestedScrollView?, _: Int, scrollY: Int, _: Int, _: Int ->
         if (!submarineView2.isFloating) {
-          if (scrollY == 0) submarineView.float()
-          else submarineView.retreat()
+          if (scrollY == 0) submarineView.floats()
+          else submarineView.retreats()
         } else if (submarineView.isFloating) {
-          submarineView.retreat()
+          submarineView.retreats()
         } else if (submarineView2.isFloating) {
-          submarineView2.retreat()
+          submarineView2.retreats()
         }
       }
 
@@ -95,9 +95,9 @@ class MainActivity :
   override fun onCircleClick() {
     with(binding) {
       if (submarineView.isNavigating) {
-        submarineView.dip()
+        submarineView.dips()
       } else {
-        submarineView.float()
+        submarineView.floats()
       }
     }
   }
@@ -105,7 +105,7 @@ class MainActivity :
   override fun onItemClick(position: Int, submarineItem: SubmarineItem) {
     with(binding) {
       if (submarineView.isFloating) {
-        submarineView.dip()
+        submarineView.dips()
         when (position) {
           0 -> toast("edit")
           1 -> toast("style")
@@ -113,7 +113,7 @@ class MainActivity :
           3 -> toast("share")
         }
       } else if (submarineView2.isFloating) {
-        submarineView2.dip()
+        submarineView2.dips()
         when (position) {
           0 -> toast("star")
           1 -> toast("tag")
@@ -127,10 +127,10 @@ class MainActivity :
   override fun onItemClick(sampleItem: SampleItem) {
     with(binding) {
       if (submarineView2.isFloating) {
-        submarineView2.dip()
+        submarineView2.dips()
       } else if (!submarineView.isFloating) {
         submarineView2.circleIcon.setImageDrawable(sampleItem.image)
-        submarineView2.float()
+        submarineView2.floats()
       }
     }
   }
