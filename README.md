@@ -33,7 +33,7 @@ allprojects {
 And add a dependency code to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
-    implementation "com.github.skydoves:submarine:1.0.4"
+    implementation "com.github.skydoves:submarine:1.0.5"
 }
 ```
 
@@ -72,8 +72,8 @@ Here is how to implement like previews using `SubmarineView`.
 ### Float and Dip
 Shows and makes disappear using the below methods.
 ```kotlin
-submarineView.float() // shows
-submarineView.dip() // makes disappear
+submarineView.floats() // shows
+submarineView.dips() // makes disappear
 ```
 
 ### Navigate and Retreat
@@ -84,14 +84,14 @@ Firstly, add below attributes to SubmarineView on your xml file.
 app:submarine_autoDip="false"
 app:submarine_autoNavigate="false"
 ```
-And call `float()` method before using `navigate()` method.
+And call `floats()` method before using `navigates()` method.
 ```kotlin
-submarineView.float()
+submarineView.floats()
 ```
 Unfold and fold using the below methods.
 ```kotlin
-submarineView.navigate() // unfold
-submarineView.retreat() // fold
+submarineView.navigates() // unfold
+submarineView.retreats() // fold
 ```
 
 ### SubmarineItem
