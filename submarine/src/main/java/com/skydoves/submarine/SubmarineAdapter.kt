@@ -105,6 +105,9 @@ class SubmarineAdapter(
           scaleType = it.iconScaleType
           ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(it.iconColor))
         }
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+          tooltipText = submarineItem.tooltipText
+        }
       }
     }
   }
