@@ -64,30 +64,54 @@ class MainActivity :
       }
 
       submarineView.addSubmarineItem(
-        SubmarineItem(ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_edit))
+        SubmarineItem(
+          ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_edit), null,
+          "edit"
+        )
       )
       submarineView.addSubmarineItem(
-        SubmarineItem(ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_wallpaper))
+        SubmarineItem(
+          ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_wallpaper), null,
+          "gallery"
+        )
       )
       submarineView.addSubmarineItem(
-        SubmarineItem(ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_archive))
+        SubmarineItem(
+          ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_archive), null,
+          "download"
+        )
       )
       submarineView.addSubmarineItem(
-        SubmarineItem(ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_share))
+        SubmarineItem(
+          ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_share), null,
+          "share"
+        )
       )
 
       submarineView2.submarineItemClickListener = this@MainActivity
       submarineView2.addSubmarineItem(
-        SubmarineItem(ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_star))
+        SubmarineItem(
+          ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_star), null,
+          "star"
+        )
       )
       submarineView2.addSubmarineItem(
-        SubmarineItem(ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_style))
+        SubmarineItem(
+          ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_style), null,
+          "tag"
+        )
       )
       submarineView2.addSubmarineItem(
-        SubmarineItem(ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_office))
+        SubmarineItem(
+          ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_office), null,
+          "email"
+        )
       )
       submarineView2.addSubmarineItem(
-        SubmarineItem(ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_phone))
+        SubmarineItem(
+          ContextCompat.getDrawable(this@MainActivity, R.drawable.ic_phone), null,
+          "call"
+        )
       )
     }
   }
