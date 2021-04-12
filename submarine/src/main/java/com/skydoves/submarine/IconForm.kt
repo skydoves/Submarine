@@ -18,10 +18,14 @@
 
 package com.skydoves.submarine
 
+import android.content.Context
 import android.graphics.Color
 import android.widget.ImageView
 import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
 import androidx.annotation.Px
+import androidx.core.content.ContextCompat
 
 @DslMarker
 internal annotation class IconFormMarker
@@ -56,9 +60,25 @@ class IconForm(builder: Builder) {
     @set:JvmSynthetic
     var iconScaleType = ImageView.ScaleType.FIT_XY
 
+    /** sets the icon square size. */
     fun setIconSize(@Px value: Int): Builder = apply { this.iconSize = value }
+
+    /** sets the icon square size using a dimension resource. */
+    fun setIconSizeRes(context: Context, @DimenRes value: Int): Builder = apply {
+      return setIconSize(context.resources.getDimension(value).toInt())
+    }
+
+    /** sets tint color of the the icon. */
     fun setIconTint(@ColorInt value: Int): Builder = apply { this.iconColor = value }
+
+    /** sets tint color using a color resource of the icon. */
+    fun setIconTintRes(context: Context, @ColorRes value: Int): Builder = apply {
+      return setIconTint(ContextCompat.getColor(context, value))
+    }
+
+    /** sets the scale type of the icon. */
     fun setIconScaleType(value: ImageView.ScaleType): Builder = apply { this.iconScaleType = value }
+
     fun build() = IconForm(this)
   }
 }
