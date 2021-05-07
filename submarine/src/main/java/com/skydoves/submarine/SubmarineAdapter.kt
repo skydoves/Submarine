@@ -21,6 +21,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.RelativeLayout
+import androidx.appcompat.widget.TooltipCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.skydoves.submarine.databinding.ItemSubmarineLibrarySkydovesBinding
@@ -41,7 +42,7 @@ class SubmarineAdapter(
       )
     return SubmarineViewHolder(binding).apply {
       binding.root.setOnClickListener {
-        val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+        val position = bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION }
           ?: return@setOnClickListener
         submarineItemClickListener?.onItemClick(position, itemList[position].submarineItem)
       }
@@ -97,6 +98,7 @@ class SubmarineAdapter(
   ) {
 
     fun bindItem(submarineItem: SubmarineItem) {
+      TooltipCompat.setTooltipText(binding.root, submarineItem.tooltipText)
       with(binding.itemSubmarineIcon) {
         setImageDrawable(submarineItem.icon)
         submarineItem.iconForm?.let {
@@ -104,9 +106,6 @@ class SubmarineAdapter(
           layoutParams.height = context.dp2Px(it.iconSize)
           scaleType = it.iconScaleType
           ImageViewCompat.setImageTintList(this, ColorStateList.valueOf(it.iconColor))
-        }
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-          tooltipText = submarineItem.tooltipText
         }
       }
     }
