@@ -20,9 +20,9 @@ Fully customizable floating navigation view for listing items dynamically on And
 
 ## Including in your project 
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.skydoves/submarine.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.github.skydoves%22%20AND%20a:%22submarine%22)
-[![Jtpack](https://jitpack.io/v/skydoves/Submarine.svg)](https://jitpack.io/#skydoves/Submarine)
+
 ### Gradle 
-Add below codes to your **root** `build.gradle` file (not your module build.gradle file).
+Add the codes below to your **root** `build.gradle` file (not your module build.gradle file).
 ```gradle
 allprojects {
     repositories {
@@ -30,7 +30,7 @@ allprojects {
     }
 }
 ```
-And add a dependency code to your **module**'s `build.gradle` file.
+And add the dependency below to your **module**'s `build.gradle` file.
 ```gradle
 dependencies {
     implementation "com.github.skydoves:submarine:1.0.7"
@@ -40,7 +40,8 @@ dependencies {
 ## SNAPSHOT 
 [![Submarine](https://img.shields.io/static/v1?label=snapshot&message=submarine&logo=apache%20maven&color=C71A36)](https://oss.sonatype.org/content/repositories/snapshots/com/github/skydoves/submarine/) <br>
 Snapshots of the current development version of submarine are available, which track [the latest versions](https://oss.sonatype.org/content/repositories/snapshots/com/github/skydoves/submarine/).
-```Gradle
+
+```gradle
 repositories {
    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
